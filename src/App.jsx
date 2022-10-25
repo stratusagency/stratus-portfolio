@@ -145,13 +145,25 @@ export default function App() {
 
 	return (
 		<>
-			<img src="assets/blobs/1.svg" alt="1" />
-			<img src="assets/blobs/2.svg" alt="2" />
+			<img src={`assets/blobs${window.innerWidth <= 768 ? '/mobile/4' : '/1'}.svg`} alt="1" />
+			<img src={`assets/blobs${window.innerWidth <= 768 ? '/mobile/3' : '/2'}.svg`} alt="2" />
 
 			<section className="header">
-				<img src="assets/1/blobs/1.svg" alt="blob 1" />
-				<img src="assets/1/blobs/2.svg" alt="blob 2" />
-				<img src="assets/1/blobs/3.svg" alt="blob 3" />
+				<img src={`assets/1/blobs${window.innerWidth <= 768 ? '/mobile' : ''}/1.svg`} alt="blob 1" />
+				<img src={`assets/1/blobs${window.innerWidth <= 768 ? '/mobile' : ''}/2.svg`} alt="blob 2" />
+				<img src={`assets/1/blobs${window.innerWidth <= 768 ? '/mobile' : ''}/3.svg`} alt="blob 3" />
+
+				{/* {window.innerWidth <= 768 ? '/mobile' : '' ?
+					<>
+						<img src={`assets/1/blobs${window.innerWidth <= 768 ? '/mobile' : ''}/1.svg`} alt="blob 1" />
+						<img src={`assets/1/blobs${window.innerWidth <= 768 ? '/mobile' : ''}/2.svg`} alt="blob 2" />
+						<img src={`assets/1/blobs${window.innerWidth <= 768 ? '/mobile' : ''}/3.svg`} alt="blob 3" />
+					</>
+					: <>
+						<img src="assets/1/blobs/1.svg" alt="blob 1" />
+						<img src="assets/1/blobs/1.svg" alt="blob 2" />
+						<img src="assets/1/blobs/1.svg" alt="blob 3" />
+					</>} */}
 
 				<div ref={three} className="three"></div>
 
@@ -184,7 +196,7 @@ export default function App() {
 
 				<div className="bottom-center">
 					<h1>STRATUS,</h1>
-					<img src="assets/line.svg" alt="line" />
+					<img src={`assets/${window.innerWidth <= 768 ? 'small_' : 'big_'}line.svg`} alt="line" />
 					<h2>
 						The next professionnal <br />
 						agency in Web 3.0
@@ -254,14 +266,24 @@ export default function App() {
 							</p>
 						</div>
 
-						<div className="element">
+						{window.innerWidth > 768 ?
+							<div className="element">
+								<img src="assets/1/values/3.svg" alt="3rd" />
+								<p>
+									Building long-term <br />
+									partnerships
+								</p>
+							</div> : undefined}
+					</div>
+
+					{window.innerWidth <= 768 ?
+						<div className="element one">
 							<img src="assets/1/values/3.svg" alt="3rd" />
 							<p>
 								Building long-term <br />
 								partnerships
 							</p>
-						</div>
-					</div>
+						</div> : undefined}
 
 					<div className="row">
 						<div className="element">
@@ -329,11 +351,11 @@ export default function App() {
 				<div
 					className="calendly-inline-widget"
 					data-url="https://calendly.com/demaupeoucorentin/meet"
-					style={{ minWidth: '1220px', height: '580px' }} />
+					style={{ minWidth: window.innerWidth <= 768 ? '196px' : '1220px', height: '580px' }} />
 			</section>
 
 			<footer>
-				<img src="assets/footer/wave.svg" alt="wave" />
+				<img src={`assets/footer/${window.innerWidth <= 768 ? 'mobile/' : ''}wave.svg`} alt="wave" />
 
 				<div className="headline row">
 					<img src="assets/footer/logo.svg" alt="logo" />
