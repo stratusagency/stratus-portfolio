@@ -2,17 +2,13 @@ import { useEffect, useState, useRef } from "react"
 
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
-import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
 
-import { RGBShiftShader } from 'three/addons/shaders/RGBShiftShader.js';
-import { DotScreenShader } from 'three/addons/shaders/DotScreenShader.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader"
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 import * as THREE from "three"
-import gsap from "gsap"
 
 export default function App() {
 	const [model, setModel] = useState(undefined)
@@ -21,12 +17,6 @@ export default function App() {
 	const three = useRef()
 
 	useEffect(() => {
-		const head = document.querySelector('head');
-		const script = document.createElement('script');
-		script.setAttribute('src', 'https://assets.calendly.com/assets/external/widget.js');
-		head.appendChild(script);
-
-
 		const sizes = {
 			width: window.innerWidth,
 			height: window.innerHeight
@@ -42,7 +32,7 @@ export default function App() {
 		renderer.shadowMap.type = THREE.PCFSoftShadowMap
 		renderer.outputEncoding = THREE.sRGBEncoding
 		renderer.physicallyCorrectLights = true
-		renderer.toneMappingExposure = 2
+		renderer.toneMappingExposure = 1.5
 		renderer.shadowMap.enabled = true
 		renderer.setSize(sizes.width, sizes.height)
 		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
@@ -58,7 +48,7 @@ export default function App() {
 			loader.setDRACOLoader(dracoLoader)
 
 			loader.load(
-				"assets/models/bitcoin/scene.gltf",
+				"assets/models/eth/scene.gltf",
 				gltf => {
 					console.log(gltf);
 
@@ -71,14 +61,17 @@ export default function App() {
 
 		if (load && three.current) {
 			const init = async () => {
-				const controls = new OrbitControls(camera, renderer.domElement)
+				let controls
+
+				controls = new OrbitControls(camera, renderer.domElement)
 				controls.enableDamping = true
 				controls.enableZoom = false
 				controls.enablePan = false
-				controls.minPolarAngle = Math.PI / 3
-				controls.maxPolarAngle = Math.PI / 3
-				controls.minDistance = 200
-				controls.maxDistance = 200
+				controls.enableRotate = window.innerWidth > 768
+				controls.minPolarAngle = Math.PI / 4.75
+				controls.maxPolarAngle = Math.PI / 4.75
+				controls.minDistance = 10
+				controls.maxDistance = 10
 				controls.autoRotate = true
 				controls.autoRotateSpeed = 3
 
@@ -129,18 +122,27 @@ export default function App() {
 
 				const animate = () => {
 					requestAnimationFrame(animate)
-					controls.update()
+					controls.update();
 					composer.render()
 				}
 
 				animate()
 
-				if (three.current) three.current.appendChild(renderer.domElement)
+				if (three.current && !document.querySelector('canvas')) three.current.appendChild(renderer.domElement)
 			}
 
 			init()
 			setLoad(true)
 		}
+
+
+
+
+
+		const head = document.querySelector('head');
+		const script = document.createElement('script');
+		script.setAttribute('src', 'https://assets.calendly.com/assets/external/widget.js');
+		head.appendChild(script);
 	}, [load, model])
 
 	return (
@@ -148,24 +150,24 @@ export default function App() {
 			<img src={`assets/blobs${window.innerWidth <= 768 ? '/mobile/4' : '/1'}.svg`} alt="1" />
 			<img src={`assets/blobs${window.innerWidth <= 768 ? '/mobile/3' : '/2'}.svg`} alt="2" />
 
+			{/* <section className="menu">
+				<div className="container">
+					<h1>MENU</h1>
+
+					<div className="list">
+						<a href="#services">OUR SERVICES</a>
+						<a href="#values">OUR VALUES</a>
+					</div>
+				</div>
+			</section> */}
+
 			<section className="header">
 				<img src={`assets/1/blobs${window.innerWidth <= 768 ? '/mobile' : ''}/1.svg`} alt="blob 1" />
 				<img src={`assets/1/blobs${window.innerWidth <= 768 ? '/mobile' : ''}/2.svg`} alt="blob 2" />
 				<img src={`assets/1/blobs${window.innerWidth <= 768 ? '/mobile' : ''}/3.svg`} alt="blob 3" />
 
-				{/* {window.innerWidth <= 768 ? '/mobile' : '' ?
-					<>
-						<img src={`assets/1/blobs${window.innerWidth <= 768 ? '/mobile' : ''}/1.svg`} alt="blob 1" />
-						<img src={`assets/1/blobs${window.innerWidth <= 768 ? '/mobile' : ''}/2.svg`} alt="blob 2" />
-						<img src={`assets/1/blobs${window.innerWidth <= 768 ? '/mobile' : ''}/3.svg`} alt="blob 3" />
-					</>
-					: <>
-						<img src="assets/1/blobs/1.svg" alt="blob 1" />
-						<img src="assets/1/blobs/1.svg" alt="blob 2" />
-						<img src="assets/1/blobs/1.svg" alt="blob 3" />
-					</>} */}
-
 				<div ref={three} className="three"></div>
+				{window.innerWidth < 768 ? <div className="scroll"></div> : undefined}
 
 				<div className="upper-left">
 					<div className="logo">
@@ -208,7 +210,7 @@ export default function App() {
 				</div>
 			</section>
 
-			<section className="services">
+			<section className="services" id="services">
 				<h1>OUR SERVICES</h1>
 
 				<div className="list">
@@ -245,7 +247,7 @@ export default function App() {
 				</div>
 			</section>
 
-			<section className="values">
+			<section className="values" id="values">
 				<h1>OUR VALUES</h1>
 
 				<div className="list">
@@ -253,16 +255,16 @@ export default function App() {
 						<div className="element">
 							<img src="assets/1/values/1.svg" alt="1st" />
 							<p>
-								Giving the track <br />
-								of the work in live
+								Track progress in <br />
+								real time
 							</p>
 						</div>
 
 						<div className="element">
 							<img src="assets/1/values/2.svg" alt="2nd" />
 							<p>
-								Giving our tips <br />
-								as experts
+								Get advices from <br />
+								true experts
 							</p>
 						</div>
 
@@ -270,8 +272,8 @@ export default function App() {
 							<div className="element">
 								<img src="assets/1/values/3.svg" alt="3rd" />
 								<p>
-									Building long-term <br />
-									partnerships
+									Long term <br />
+									vision
 								</p>
 							</div> : undefined}
 					</div>
@@ -280,8 +282,8 @@ export default function App() {
 						<div className="element one">
 							<img src="assets/1/values/3.svg" alt="3rd" />
 							<p>
-								Building long-term <br />
-								partnerships
+								Long term <br />
+								vision
 							</p>
 						</div> : undefined}
 
@@ -289,16 +291,16 @@ export default function App() {
 						<div className="element">
 							<img src="assets/1/values/4.svg" alt="4th" />
 							<p>
-								Responding in <br />
-								12h delay
+								12h maximum <br />
+								response time
 							</p>
 						</div>
 
 						<div className="element">
 							<img src="assets/1/values/5.svg" alt="5th" />
 							<p>
-								Making all of our <br />
-								clients unique
+								Tailored solution for <br />
+								each organisation
 							</p>
 						</div>
 					</div>
@@ -327,18 +329,11 @@ export default function App() {
 			<section className="work">
 				<h1>OUR WORK</h1>
 
-				<button>
-					<img src="assets/1/work/1.svg" alt="work 1" />
-				</button>
+				<img src="assets/1/work/1.png" alt="work 1" />
 
 				<div className="row">
-					<button>
-						<img src="assets/1/work/2.svg" alt="work 2" />
-					</button>
-
-					<button>
-						<img src="assets/1/work/3.svg" alt="work 3" />
-					</button>
+					<img src="assets/1/work/2.png" alt="work 2" />
+					<img src="assets/1/work/3.png" alt="work 3" />
 				</div>
 			</section>
 
@@ -351,7 +346,7 @@ export default function App() {
 				<div
 					className="calendly-inline-widget"
 					data-url="https://calendly.com/demaupeoucorentin/meet"
-					style={{ minWidth: window.innerWidth <= 768 ? '196px' : '1220px', height: '580px' }} />
+					style={{ minWidth: window.innerWidth <= 768 ? '196px' : '1220px', height: '780px' }} />
 			</section>
 
 			<footer>

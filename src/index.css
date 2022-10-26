@@ -22,7 +22,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 img[alt="1"] {
@@ -45,9 +45,18 @@ code {
 }
 
 button {
+  transition: 0.25s;
+
   border: none;
   cursor: pointer;
   background: none;
+}
+
+button:hover {
+  transition: 0.25s;
+
+  transform: translateY(-10px);
+  box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.35);
 }
 
 h1 {
@@ -67,6 +76,25 @@ div.row {
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+}
+
+section.menu{
+	position: absolute;
+
+	transform: translateY(-100vh);
+	background: white;
+
+	width: 100vw;
+	height: 100vh;
+}
+
+section.menu div.container {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+
+	margin: 80px;
 }
 
 section.header {
@@ -435,8 +463,6 @@ section.clients div.element p {
 }
 
 section.clients button {
-  transition: 0.25s;
-
   background: #ffffff;
   box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.25);
   border-radius: 14px;
@@ -453,13 +479,6 @@ section.clients button {
   margin: 0 0 50px 0;
   width: 526px;
   height: 75px;
-}
-
-section.clients button:hover {
-  transition: 0.25s;
-
-  transform: translateY(-10px);
-  box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.35);
 }
 
 section.work {
@@ -636,8 +655,34 @@ footer div.bottom-center h6 {
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
+  canvas {
+    position: absolute;
+    display: block;
+    top: 0;
+    z-index: -1;
+  }
+
+  div.scroll {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+
+    width: 100vw;
+    height: 100vh;
+  }
+
   section {
     padding: 100px 0;
+  }
+
+  section.header img[alt="blob 1"] {
+    transform: translate(-9px, -5px);
+    width: 260px;
+  }
+
+  section.header img[alt="blob 2"] {
+    transform: translate(0px, -10px);
+    width: 120px;
   }
 
   section.header div.upper-left {
@@ -650,28 +695,28 @@ footer div.bottom-center h6 {
   }
 
   section.header div.upper-left img {
-    width: 25px;
-    margin: 0 3px 0 0;
+    width: 32px;
+    margin: 0 7.5px 0 0;
   }
 
   section.header div.upper-left h1 {
-    font-size: 9px;
-    line-height: 12px;
+    font-size: 13px;
+    line-height: 15px;
   }
 
   section.header div.upper-left p {
-    font-size: 6px;
-    line-height: 7px;
+    font-size: 9px;
+    line-height: 9px;
   }
 
   section.header div.upper-left button {
-    font-size: 5px;
-    line-height: 6px;
-    border-radius: 2px;
+    font-size: 8px;
+    line-height: 10px;
+    border-radius: 4px;
 
-    margin: 4px 0 0 0;
-    width: 86.3px;
-    height: 13px;
+    margin: 10px 0 0 0;
+    width: 120px;
+    height: 20px;
   }
 
   section.header div.upper-right {
@@ -680,35 +725,37 @@ footer div.bottom-center h6 {
   }
 
   section.header div.upper-right button img {
-    width: 10.67px;
+    width: 16px;
   }
 
   section.header div.bottom-center h1 {
-    font-size: 12px;
-    line-height: 16px;
+    font-size: 23px;
+    line-height: 30px;
   }
 
   section.header div.bottom-center h2 {
-    font-size: 10px;
-    line-height: 13px;
+    font-size: 13px;
+    line-height: 17px;
 
-    margin: 0 0 7px 0;
+    margin: 2px 0 7px 0;
+    width: 218px;
   }
 
   section.header div.bottom-center > img {
-    top: 14px;
+    top: 25px;
+    width: 146px;
   }
 
   section.header div.bottom-center button img {
-    width: 11px;
+    width: 15px;
   }
 
   section.services h1,
   section.values h1,
   section.work h1,
   section.call h1 {
-    font-size: 16px;
-    line-height: 21px;
+    font-size: 21px;
+    line-height: 26px;
 
     margin: 0 0 29px 0;
   }
@@ -776,7 +823,7 @@ footer div.bottom-center h6 {
   section.clients div.element {
     flex-direction: column;
     margin: 0 0 17px 0;
-	width: auto;
+    width: auto;
   }
 
   section.clients div.element img {
@@ -807,6 +854,10 @@ footer div.bottom-center h6 {
     height: 18px;
   }
 
+  section.work {
+    padding: 0;
+  }
+
   section.work div.row {
     flex-direction: column;
   }
@@ -814,6 +865,11 @@ footer div.bottom-center h6 {
   section.work img {
     margin: 0 0 15px 0;
     width: 245.15px;
+  }
+
+  section.work img[alt="work 1"] {
+    width: 330px;
+    margin: 0 0 45px 0;
   }
 
   footer {
@@ -847,7 +903,7 @@ footer div.bottom-center h6 {
   }
 
   footer div.container.row {
-	transform: translateY(-53px);
+    transform: translateY(-53px);
     flex-direction: column;
 
     margin: 0 0 0 20px;
@@ -868,7 +924,7 @@ footer div.bottom-center h6 {
     line-height: 9px;
 
     margin: 6px 0 0 0;
-	width: auto;
+    width: auto;
   }
 
   footer div.element {
@@ -908,6 +964,6 @@ footer div.bottom-center h6 {
   }
 
   footer div.details {
-	height: 0;
+    height: 0;
   }
 }
