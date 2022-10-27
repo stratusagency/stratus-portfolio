@@ -161,6 +161,7 @@ export default function App() {
 							gsap.to('section.menu', {
 								opacity: 0,
 								y: '-100vh',
+								zIndex: -1,
 								duration: 0.25
 							});
 						}}>OUR SERVICES</a>
@@ -168,6 +169,7 @@ export default function App() {
 							gsap.to('section.menu', {
 								opacity: 0,
 								y: '-100vh',
+								zIndex: -1,
 								duration: 0.25
 							});
 						}}>OUR VALUES</a>
@@ -179,6 +181,7 @@ export default function App() {
 						gsap.to('section.menu', {
 							opacity: 0,
 							y: '-100vh',
+							zIndex: -1,
 							duration: 0.25
 						});
 					}}>
@@ -219,6 +222,7 @@ export default function App() {
 							gsap.to('section.menu', {
 								y: 0,
 								opacity: 1,
+								zIndex: 999,
 								duration: 0.25
 							})
 						}}>
@@ -382,7 +386,7 @@ export default function App() {
 
 				<div
 					className="calendly-inline-widget"
-					data-url="https://calendly.com/demaupeoucorentin/meet"
+					data-url="https://calendly.com/stratus_agency/meet"
 					style={{ minWidth: window.innerWidth <= 768 ? '196px' : '1220px', height: '780px' }} />
 			</section>
 

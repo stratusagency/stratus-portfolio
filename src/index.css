@@ -83,7 +83,7 @@ section.menu {
 
   transform: translateY(-100vh);
   background: white;
-  z-index: 999;
+  z-index: -1;
   opacity: 0;
 
   width: 100vw;
@@ -718,8 +718,37 @@ footer div.bottom-center h6 {
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
+  section.menu div.container {
+    margin: 0 30px;
+  }
+
+  section.menu div.container h1 {
+    font-size: 32px;
+    line-height: 37px;
+  }
+
+  section.menu div.container div.list {
+    margin: 32px 0 0 0;
+  }
+
+  section.menu div.container div.list a {
+    font-size: 18px;
+    line-height: 24px;
+
+    margin: 0 0 5px 0;
+  }
+
+  section.menu div.container button {
+    top: 40px;
+    right: 35px;
+  }
+
+  section.menu div.container button img {
+    width: 24px;
+  }
+
   img[alt="2"] {
-    bottom: -1220px;
+    bottom: -1120px;
   }
 
   section.header img[alt="blob 3"] {
@@ -748,6 +777,7 @@ footer div.bottom-center h6 {
     z-index: -1;
     top: 0;
 
+    margin: 50px 0 0 0;
     width: 100vw;
     height: 100vh;
   }
@@ -763,7 +793,7 @@ footer div.bottom-center h6 {
 
   section.header img[alt="blob 2"] {
     transform: translate(0px, -10px);
-    width: 120px;
+    width: 160px;
   }
 
   section.header div.upper-left {
@@ -801,12 +831,13 @@ footer div.bottom-center h6 {
   }
 
   section.header div.upper-right {
-    top: 10px;
-    right: 10px;
+    top: 18px;
+    right: 15px;
+    z-index: 2;
   }
 
   section.header div.upper-right button img {
-    width: 16px;
+    width: 24px;
   }
 
   section.header div.bottom-center h1 {
