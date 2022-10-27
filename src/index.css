@@ -78,23 +78,23 @@ div.row {
   flex-direction: row;
 }
 
-section.menu{
-	position: absolute;
+section.menu {
+  position: absolute;
 
-	transform: translateY(-100vh);
-	background: white;
+  transform: translateY(-100vh);
+  background: white;
 
-	width: 100vw;
-	height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
 
 section.menu div.container {
-	display: flex;
-	justify-content: flex-start;
-	align-items: flex-start;
-	flex-direction: column;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
 
-	margin: 80px;
+  margin: 80px;
 }
 
 section.header {
@@ -185,6 +185,10 @@ section.header button.proposal {
   height: 47px;
 }
 
+section.header button.proposal:hover {
+  transform: none;
+}
+
 section.header div.upper-right {
   position: absolute;
 
@@ -205,8 +209,12 @@ section.header div.three:active {
 section.header div.bottom-left {
   position: absolute;
 
-  bottom: 50px;
-  left: 50px;
+  bottom: 49px;
+  left: 13px;
+}
+
+section.header div.bottom-left img {
+  width: 16px;
 }
 
 section.header div.bottom-center {
@@ -638,7 +646,7 @@ footer div.bottom-center h5 {
   font-family: "Helvetica";
   font-style: italic;
   font-weight: 400;
-  font-size: 23px;
+  font-size: 18px;
   line-height: 26px;
 
   color: #ffffff;
@@ -655,11 +663,29 @@ footer div.bottom-center h6 {
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
+  img[alt="2"] {
+    bottom: -1420px;
+  }
+
+  section.header img[alt="blob 3"] {
+    bottom: -60px;
+  }
+
   canvas {
-    position: absolute;
-    display: block;
-    top: 0;
-    z-index: -1;
+    margin: 75px 0 0 0;
+  }
+
+  section.header {
+    padding: 0;
+  }
+
+  section.services,
+  section.values {
+    padding: 50px 0;
+  }
+
+  section.clients {
+    margin: 100px 0;
   }
 
   div.scroll {
@@ -729,25 +755,25 @@ footer div.bottom-center h6 {
   }
 
   section.header div.bottom-center h1 {
-    font-size: 23px;
+    font-size: 30px;
     line-height: 30px;
   }
 
   section.header div.bottom-center h2 {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 17px;
 
-    margin: 2px 0 7px 0;
-    width: 218px;
+    margin: 10px 0 20px 0;
+    width: 252px;
   }
 
   section.header div.bottom-center > img {
-    top: 25px;
-    width: 146px;
+    top: 29px;
+    width: 173px;
   }
 
   section.header div.bottom-center button img {
-    width: 15px;
+    width: 20px;
   }
 
   section.services h1,
@@ -767,7 +793,7 @@ footer div.bottom-center h6 {
 
   section.services div.list div.element img,
   section.values div.list div.element img {
-    width: 78px;
+    width: 112px;
   }
 
   section.services div.list div.element div.text,
@@ -782,7 +808,7 @@ footer div.bottom-center h6 {
 
   section.services div.list div.element h2 {
     text-align: center;
-    font-size: 14px;
+    font-size: 17px;
     line-height: 16px;
 
     margin: 0 0 3px 0;
@@ -790,9 +816,11 @@ footer div.bottom-center h6 {
   }
 
   section.services div.list div.element p {
-    font-size: 11px;
+    text-align: left;
+    font-size: 13px;
     line-height: 13px;
-    width: 193px;
+    width: 217px;
+    margin: 5px 0 0 0;
   }
 
   section.services div.list div.element button {
@@ -814,8 +842,8 @@ footer div.bottom-center h6 {
   }
 
   section.clients h1 {
-    font-size: 16px;
-    line-height: 21px;
+    font-size: 21px;
+    line-height: 26px;
 
     margin: 0 0 22.19px 0;
   }
@@ -828,30 +856,30 @@ footer div.bottom-center h6 {
 
   section.clients div.element img {
     margin: 0 0 10px 0;
-    width: 64px;
+    width: 92px;
   }
 
   section.clients div.element h2 {
     text-align: center;
-    font-size: 12px;
-    line-height: 14px;
+    font-size: 17px;
+    line-height: 16x;
 
     margin: 0 0 4px 0;
   }
 
   section.clients div.element p {
-    font-size: 9px;
-    line-height: 10px;
-    width: 203px;
+    font-size: 13px;
+    line-height: 13px;
+    width: 262px;
   }
 
   section.clients button {
-    border-radius: 14px;
-    font-size: 6px;
-    line-height: 7px;
+    border-radius: 16px;
+    font-size: 11px;
 
-    width: 131px;
-    height: 18px;
+    margin: 10px 0 0 0;
+    width: 211px;
+    height: 32px;
   }
 
   section.work {

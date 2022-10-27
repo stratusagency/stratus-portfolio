@@ -32,7 +32,7 @@ export default function App() {
 		renderer.shadowMap.type = THREE.PCFSoftShadowMap
 		renderer.outputEncoding = THREE.sRGBEncoding
 		renderer.physicallyCorrectLights = true
-		renderer.toneMappingExposure = 1.5
+		renderer.toneMappingExposure = 1.25
 		renderer.shadowMap.enabled = true
 		renderer.setSize(sizes.width, sizes.height)
 		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
@@ -48,7 +48,7 @@ export default function App() {
 			loader.setDRACOLoader(dracoLoader)
 
 			loader.load(
-				"assets/models/eth/scene.gltf",
+				"assets/models/eth/scene.glb",
 				gltf => {
 					console.log(gltf);
 
@@ -68,8 +68,8 @@ export default function App() {
 				controls.enableZoom = false
 				controls.enablePan = false
 				controls.enableRotate = window.innerWidth > 768
-				controls.minPolarAngle = Math.PI / 4.75
-				controls.maxPolarAngle = Math.PI / 4.75
+				controls.minPolarAngle = Math.PI / 3.75
+				controls.maxPolarAngle = Math.PI / 3.75
 				controls.minDistance = 10
 				controls.maxDistance = 10
 				controls.autoRotate = true
@@ -175,11 +175,11 @@ export default function App() {
 
 						<div>
 							<h1>STRATUS</h1>
-							<p>We bring you to Web 3.0</p>
+							<p>Web 3.0 Agency</p>
 						</div>
 					</div>
 
-					<button className="proposal">GET A PROPOSAL</button>
+					<button className="proposal">REQUEST A PROPOSAL</button>
 				</div>
 
 				<div className="upper-right">
@@ -191,9 +191,9 @@ export default function App() {
 				</div>
 
 				<div className="bottom-left">
-					<button className="linkedin">
-						<img src="assets/icons/linkedin_white.svg" alt="linkedin icon" />
-					</button>
+					<a href="https://www.linkedin.com/company/stratus-web3/" target="_blank" rel="noreferrer">
+						<img src="assets/icons/linkedin_white.svg" alt="linkedin" />
+					</a>
 				</div>
 
 				<div className="bottom-center">
@@ -372,11 +372,11 @@ export default function App() {
 							<h2>OUR VALUES</h2>
 
 							<div className="list">
-								<p>Giving the track of the work in live</p>
-								<p>Giving our tips as experts</p>
-								<p>Building long-term partnerships</p>
-								<p>Responding in 12h delay</p>
-								<p>Making all of our clients unique</p>
+								<p>Track progress in real time</p>
+								<p>Get advices from true experts</p>
+								<p>Long term vision</p>
+								<p>12h maximum response time</p>
+								<p>MTailored solution for each organisation</p>
 							</div>
 						</div>
 
