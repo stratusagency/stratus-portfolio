@@ -83,6 +83,8 @@ section.menu {
 
   transform: translateY(-100vh);
   background: white;
+  z-index: 999;
+  opacity: 0;
 
   width: 100vw;
   height: 100vh;
@@ -95,6 +97,54 @@ section.menu div.container {
   flex-direction: column;
 
   margin: 80px;
+}
+
+section.menu div.container h1 {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 83px;
+  /* identical to box height */
+
+  color: #2e2f04;
+}
+
+section.menu div.container div.list {
+  display: flex;
+  flex-direction: column;
+
+  margin: 66px 0 0 0;
+}
+
+section.menu div.container div.list a {
+  font-family: "Panchang Variable";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 53px;
+  text-decoration: none;
+  /* identical to box height */
+
+  color: #e6ac00;
+
+  margin: 0 0 24px 0;
+}
+
+section.menu div.container div.list a:hover {
+  text-decoration: underline;
+}
+
+section.menu button.close {
+  position: absolute;
+
+  right: 50px;
+  top: 50px;
+}
+
+section.menu button.close:hover {
+  transform: none;
+  box-shadow: none;
 }
 
 section.header {
@@ -194,6 +244,11 @@ section.header div.upper-right {
 
   top: 80px;
   right: 80px;
+}
+
+section.header div.upper-right button:hover {
+  transform: none;
+  box-shadow: none;
 }
 
 section.header div.three {

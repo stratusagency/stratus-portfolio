@@ -10,6 +10,8 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader"
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 import * as THREE from "three"
 
+import gsap from "gsap"
+
 export default function App() {
 	const [model, setModel] = useState(undefined)
 	const [load, setLoad] = useState(false)
@@ -150,16 +152,40 @@ export default function App() {
 			<img src={`assets/blobs${window.innerWidth <= 768 ? '/mobile/4' : '/1'}.svg`} alt="1" />
 			<img src={`assets/blobs${window.innerWidth <= 768 ? '/mobile/3' : '/2'}.svg`} alt="2" />
 
-			{/* <section className="menu">
+			<section className="menu">
 				<div className="container">
 					<h1>MENU</h1>
 
 					<div className="list">
-						<a href="#services">OUR SERVICES</a>
-						<a href="#values">OUR VALUES</a>
+						<a href="#services" onClick={e => {
+							gsap.to('section.menu', {
+								opacity: 0,
+								y: '-100vh',
+								duration: 0.25
+							});
+						}}>OUR SERVICES</a>
+						<a href="#values" onClick={e => {
+							gsap.to('section.menu', {
+								opacity: 0,
+								y: '-100vh',
+								duration: 0.25
+							});
+						}}>OUR VALUES</a>
 					</div>
+
+					<button className="close" onClick={e => {
+						e.preventDefault();
+
+						gsap.to('section.menu', {
+							opacity: 0,
+							y: '-100vh',
+							duration: 0.25
+						});
+					}}>
+						<img src="assets/icons/close.svg" alt="close icon" />
+					</button>
 				</div>
-			</section> */}
+			</section>
 
 			<section className="header">
 				<img src={`assets/1/blobs${window.innerWidth <= 768 ? '/mobile' : ''}/1.svg`} alt="blob 1" />
@@ -179,12 +205,23 @@ export default function App() {
 						</div>
 					</div>
 
-					<button className="proposal">REQUEST A PROPOSAL</button>
+					<button onClick={e => {
+						e.preventDefault();
+						window.open('https://calendly.com/stratus_agency/meet');
+					}} className="proposal">REQUEST A PROPOSAL</button>
 				</div>
 
 				<div className="upper-right">
 					<nav>
-						<button>
+						<button onClick={e => {
+							e.preventDefault();
+
+							gsap.to('section.menu', {
+								y: 0,
+								opacity: 1,
+								duration: 0.25
+							})
+						}}>
 							<img src="assets/navbar.svg" alt="navbar icon" />
 						</button>
 					</nav>
@@ -376,7 +413,7 @@ export default function App() {
 								<p>Get advices from true experts</p>
 								<p>Long term vision</p>
 								<p>12h maximum response time</p>
-								<p>MTailored solution for each organisation</p>
+								<p>Tailored solution for each organisation</p>
 							</div>
 						</div>
 
