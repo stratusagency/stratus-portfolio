@@ -574,7 +574,8 @@ footer img[alt="wave"] {
   position: absolute;
 
   bottom: calc(100% - 1px);
-  width: 1728px;
+  min-width: 1728px;
+  width: 100vw;
 }
 
 footer div.details {
