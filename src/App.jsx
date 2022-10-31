@@ -387,7 +387,7 @@ export default function App() {
 				<div
 					className="calendly-inline-widget"
 					data-url="https://calendly.com/stratus_agency/meet"
-					style={{ minWidth: window.innerWidth <= 768 ? '196px' : '1220px', height: '780px' }} />
+					style={{ minWidth: window.innerWidth <= 768 ? `${window.innerWidth * 0.8}px` : '1220px', height: window.innerWidth <= 768 ? '950px' : '780px' }} />
 			</section>
 
 			<footer>
