@@ -16,7 +16,19 @@ export default function App() {
 	const [model, setModel] = useState(undefined)
 	const [load, setLoad] = useState(false)
 
+	const menuRef = useRef()
 	const three = useRef()
+
+	const handleHideMenu = e => {
+		document.body.classList.remove('stop-scrolling')
+
+		gsap.to('section.menu', {
+			opacity: 0,
+			y: '-100vh',
+			zIndex: -1,
+			duration: 0.25
+		});
+	}
 
 	useEffect(() => {
 		const sizes = {
@@ -152,39 +164,16 @@ export default function App() {
 			<img src={`assets/blobs${window.innerWidth <= 768 ? '/mobile/4' : '/1'}.svg`} alt="1" />
 			<img src={`assets/blobs${window.innerWidth <= 768 ? '/mobile/3' : '/2'}.svg`} alt="2" />
 
-			<section className="menu">
+			<section ref={menuRef} className="menu">
 				<div className="container">
 					<h1>MENU</h1>
 
 					<div className="list">
-						<a href="#services" onClick={e => {
-							gsap.to('section.menu', {
-								opacity: 0,
-								y: '-100vh',
-								zIndex: -1,
-								duration: 0.25
-							});
-						}}>OUR SERVICES</a>
-						<a href="#values" onClick={e => {
-							gsap.to('section.menu', {
-								opacity: 0,
-								y: '-100vh',
-								zIndex: -1,
-								duration: 0.25
-							});
-						}}>OUR VALUES</a>
+						<a href="#services" onClick={handleHideMenu}>OUR SERVICES</a>
+						<a href="#values" onClick={handleHideMenu}>OUR VALUES</a>
 					</div>
 
-					<button className="close" onClick={e => {
-						e.preventDefault();
-
-						gsap.to('section.menu', {
-							opacity: 0,
-							y: '-100vh',
-							zIndex: -1,
-							duration: 0.25
-						});
-					}}>
+					<button className="close" onClick={handleHideMenu}>
 						<img src="assets/icons/close.svg" alt="close icon" />
 					</button>
 				</div>
@@ -219,7 +208,9 @@ export default function App() {
 						<button onClick={e => {
 							e.preventDefault();
 
-							gsap.to('section.menu', {
+							document.body.classList.add('stop-scrolling')
+
+							gsap.to(menuRef.current, {
 								y: 0,
 								opacity: 1,
 								zIndex: 999,
@@ -280,7 +271,7 @@ export default function App() {
 							<h2>Audit/analysis of your Web 3.0 projects</h2>
 							<p>Need an advice about a new Web 3.0 project/business? We can find your competitors, what to use, then how to build it. Contact us for more details.</p>
 
-							<button className="schedule">
+							<button onClick={() => window.open('https://calendly.com/stratus_agency/meet')} className="schedule">
 								SCHEDULE A MEETING
 							</button>
 						</div>
@@ -362,7 +353,7 @@ export default function App() {
 					</div>
 				</div>
 
-				<button>BECOME OUR NEXT CLIENT</button>
+				<button onClick={() => window.open('https://calendly.com/stratus_agency/meet')}>BECOME OUR NEXT CLIENT</button>
 
 				<img src="assets/1/waves/wave_2.svg" alt="wave 2" />
 			</section>
@@ -370,11 +361,22 @@ export default function App() {
 			<section className="work">
 				<h1>OUR WORK</h1>
 
-				<img src="assets/1/work/1.png" alt="work 1" />
+				<a href="https://megt.io" target="_blank" rel="noreferrer">
+					<img src="assets/1/work/1.png" alt="work 1" />
+				</a>
+
+				<a href="https://github.com/solidity-docs/fr-french" target="_blank" rel="noreferrer">
+					<img src="assets/1/work/2.png" alt="work 2" />
+				</a>
 
 				<div className="row">
-					<img src="assets/1/work/2.png" alt="work 2" />
-					<img src="assets/1/work/3.png" alt="work 3" />
+					<a href="https://form.questionscout.com/6356e687efdc2d82c05e554a" target="_blank" rel="noreferrer">
+						<img src="assets/1/work/3.png" alt="work 3" />
+					</a>
+
+					<a href="https://mont-blanc-climate-change.netlify.app/" target="_blank" rel="noreferrer">
+						<img src="assets/1/work/4.png" alt="work 4" />
+					</a>
 				</div>
 			</section>
 
@@ -436,6 +438,10 @@ export default function App() {
 
 							<a href="https://www.linkedin.com/company/stratus-web3/" target="_blank" rel="noreferrer">
 								<img src="assets/icons/linkedin_white.svg" alt="linkedin" />
+							</a>
+
+							<a href="https://github.com/stratusagency" target="_blank" rel="noreferrer">
+								<img src="assets/icons/github.png" alt="github" />
 							</a>
 						</div>
 					</div>

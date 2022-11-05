@@ -11,6 +11,11 @@
   src: url(assets/fonts/fonts/Panchang-Bold.ttf);
 }
 
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -52,12 +57,12 @@ button {
   background: none;
 }
 
-button:hover {
+/* button:hover {
   transition: 0.25s;
 
   transform: translateY(-10px);
   box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.35);
-}
+} */
 
 h1 {
   font-family: "Panchang Variable";
@@ -264,12 +269,12 @@ section.header div.three:active {
 section.header div.bottom-left {
   position: absolute;
 
-  bottom: 49px;
-  left: 13px;
+  bottom: 28px;
+  left: 50px;
 }
 
 section.header div.bottom-left img {
-  width: 16px;
+  width: 32px;
 }
 
 section.header div.bottom-center {
@@ -495,11 +500,15 @@ section.clients h1 {
 section.clients div.element {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: row;
 
   margin: 0 0 81px 0;
   width: 627px;
+}
+
+section.clients div.element div.text {
+  margin: 10px 0 0 20px;
 }
 
 section.clients div.element h2 {
@@ -511,6 +520,8 @@ section.clients div.element h2 {
   /* identical to box height */
 
   color: #ffffff;
+
+  margin: 0 0 5px 0;
 }
 
 section.clients div.element p {
@@ -686,6 +697,7 @@ footer div.element p {
 }
 
 footer div.element img {
+  margin: 0 15px 0 0;
   width: 23px;
 }
 
@@ -841,6 +853,15 @@ footer div.bottom-center h6 {
     width: 24px;
   }
 
+  section.header div.bottom-left {
+    bottom: 49px;
+    left: 13px;
+  }
+
+  section.header div.bottom-left img {
+    width: 16px;
+  }
+
   section.header div.bottom-center h1 {
     font-size: 30px;
     line-height: 30px;
@@ -937,6 +958,7 @@ footer div.bottom-center h6 {
 
   section.clients div.element {
     flex-direction: column;
+    align-items: center;
     margin: 0 0 17px 0;
     width: auto;
   }
@@ -961,7 +983,7 @@ footer div.bottom-center h6 {
   }
 
   section.clients button {
-    border-radius: 16px;
+    border-radius: 3px;
     font-size: 11px;
 
     margin: 10px 0 0 0;
@@ -982,14 +1004,14 @@ footer div.bottom-center h6 {
     width: 245.15px;
   }
 
-  section.work img[alt="work 1"] {
+  section.work > img {
     width: 330px;
     margin: 0 0 45px 0;
   }
 
   footer {
     margin: 20px 0 0 0;
-    padding: 0 0 25px 0;
+    padding: 15px 0 75px 0;
     height: auto;
   }
 
@@ -1025,7 +1047,7 @@ footer div.bottom-center h6 {
     transform: none;
     flex-direction: column;
 
-    margin: 0 0 0 20px;
+    margin: 10px 0 0 20px;
   }
 
   footer div.subheadline {
@@ -1049,7 +1071,7 @@ footer div.bottom-center h6 {
   }
 
   footer div.element {
-    margin: 0 0 20px 0;
+    margin: 0 0 40px 0;
   }
 
   footer div.element h2 {
