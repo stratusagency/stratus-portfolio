@@ -1,16 +1,1117 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@import url("assets/fonts/css/panchang.css");
+
+@font-face {
+  font-family: "Panchang Variable";
+  src: url(assets/fonts/fonts/Panchang-Variable.woff) format("woff"),
+    url(assets/fonts/fonts/Panchang-Variable.woff2) format("woff2");
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@font-face {
+  font-family: "Panchang Bold";
+  src: url(assets/fonts/fonts/Panchang-Bold.ttf);
+}
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
 }
 
 * {
   box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden !important;
+}
+
+img[alt="1"] {
+  position: absolute;
+
+  bottom: -100%;
+  right: 0;
+}
+
+img[alt="2"] {
+  position: absolute;
+
+  bottom: -200%;
+  left: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+button {
+  transition: 0.25s;
+
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+/* button:hover {
+  transition: 0.25s;
+
+  transform: translateY(-10px);
+  box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.35);
+} */
+
+h1 {
+  font-family: "Panchang Variable";
+  font-style: normal;
+  font-weight: 800;
+}
+
+p {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 700;
+}
+
+div.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+section.menu {
+  position: absolute;
+
+  transform: translateY(-100vh);
+  background: white;
+  z-index: -1;
+  opacity: 0;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+section.menu div.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+
+  margin: 80px;
+}
+
+section.menu div.container h1 {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 83px;
+  /* identical to box height */
+
+  color: #2e2f04;
+}
+
+section.menu div.container div.list {
+  display: flex;
+  flex-direction: column;
+
+  margin: 66px 0 0 0;
+}
+
+section.menu div.container div.list a {
+  font-family: "Panchang Variable";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 53px;
+  text-decoration: none;
+  /* identical to box height */
+
+  color: #e6ac00;
+
+  margin: 0 0 24px 0;
+}
+
+section.menu div.container div.list a:hover {
+  text-decoration: underline;
+}
+
+section.menu button.close {
+  position: absolute;
+
+  right: 50px;
+  top: 50px;
+}
+
+section.menu button.close:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+section.header {
+  width: 100vw;
+  height: 100vh;
+}
+
+section.header img,
+section.header h1,
+section.header p,
+section.header nav,
+section.header button,
+section.header div {
+  z-index: 1;
+}
+
+section.header img[alt="blob 1"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+section.header img[alt="blob 2"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+section.header img[alt="blob 3"] {
+  position: absolute;
+  bottom: -60%;
+  left: 0;
+}
+
+section.header div.upper-left {
+  position: absolute;
+
+  top: 50px;
+  left: 50px;
+}
+
+section.header div.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+section.header div.logo img {
+  margin: 0 28px 0 0;
+}
+
+section.header div.logo h1 {
+  font-family: "Panchang Variable";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 35px;
+  line-height: 46px;
+  color: white;
+}
+
+section.header div.logo p {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 20px;
+  /* identical to box height */
+
+  color: #f5f5f5;
+}
+
+section.header button.proposal {
+  font-family: "Helvetica";
+  font-style: italic;
+  font-weight: 800;
+  font-size: 17px;
+  line-height: 20px;
+  text-align: center;
+  color: #ffffff;
+  background: #2e2f04;
+  box-shadow: 0px 4px 100px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+
+  margin: 18px 0 0 0;
+  width: 312px;
+  height: 47px;
+}
+
+section.header button.proposal:hover {
+  transform: none;
+}
+
+section.header div.upper-right {
+  position: absolute;
+
+  top: 80px;
+  right: 80px;
+}
+
+section.header div.upper-right button:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+section.header div.three {
+  position: absolute;
+  cursor: grab;
+  z-index: 0;
+}
+
+section.header div.three:active {
+  cursor: grabbing;
+}
+
+/* section.header div.bottom-left {
+  position: absolute;
+
+  bottom: 28px;
+  left: 50px;
+}
+
+section.header div.bottom-left img {
+  width: 32px;
+} */
+
+section.header div.bottom-center {
+  position: absolute;
+
+  transform: translateX(-50%);
+  bottom: 50px;
+  left: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  text-align: center;
+}
+
+section.header div.bottom-center h1 {
+  font-family: "Panchang Variable";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 70px;
+  line-height: 92px;
+
+  color: #ffc000;
+}
+
+section.header div.bottom-center h2 {
+  font-family: "Panchang Bold";
+  font-style: normal;
+  font-weight: 100;
+  font-size: 48px;
+  line-height: 63px;
+  text-align: center;
+
+  color: #2e2f04;
+
+  margin: 0 0 24px 0;
+}
+
+section.header div.bottom-center > img {
+  position: absolute;
+  top: 78px;
+}
+
+section.services,
+section.values {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 200px 0;
+}
+
+section.services h1,
+section.values h1,
+section.work h1,
+section.call h1 {
+  font-family: "Panchang Variable";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 65px;
+  line-height: 86px;
+  /* identical to box height */
+
+  color: #bf8f00;
+
+  margin: 0 0 125px;
+}
+
+section.services div.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+section.services div.list div.element {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+
+  margin: 0 0 48px 0;
+}
+
+section.services div.list div.element:last-child {
+  margin: 0;
+}
+
+section.services div.list div.element:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+section.services div.list div.element:nth-child(even) {
+  text-align: right;
+}
+
+section.services div.list div.element div.text {
+  width: 583.31px;
+}
+
+section.services div.list div.element h2 {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 39px;
+  line-height: 45px;
+
+  color: #2e2f04;
+
+  margin: 0 0 5px 0;
+}
+
+section.services div.list div.element p {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 25px;
+
+  color: #2e2f04;
+}
+
+section.services div.list div.element button {
+  font-family: "Helvetica";
+  font-style: italic;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #ffffff;
+
+  background: #e6ac00;
+  border-radius: 5px;
+
+  margin: 20px 0 0 0;
+  width: 279px;
+  height: 45px;
+}
+
+section.values div.list div.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+section.values div.list div.element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  margin: 0 95px 0 0;
+}
+
+section.values div.list div.element:last-child {
+  margin: 0;
+}
+
+section.values div.list div.element p {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 39px;
+  line-height: 47px;
+  text-align: center;
+
+  color: #2e2f04;
+}
+
+section.clients {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  position: relative;
+
+  background: #e6ac00;
+
+  margin: 200px 0;
+}
+
+section.clients img[alt="wave 1"] {
+  position: absolute;
+
+  bottom: calc(100% - 1px);
+  left: 0;
+
+  width: 100vw;
+}
+
+section.clients img[alt="wave 2"] {
+  position: absolute;
+
+  top: calc(100% - 1px);
+  left: 0;
+
+  width: 100vw;
+}
+
+section.clients h1 {
+  font-family: "Panchang Variable";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 65px;
+  line-height: 86px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #ffffff;
+
+  margin: 0 0 101px 0;
+}
+
+section.clients div.element {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+
+  margin: 0 0 81px 0;
+  width: 627px;
+}
+
+section.clients div.element div.text {
+  margin: 10px 0 0 20px;
+}
+
+section.clients div.element h2 {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 31px;
+  line-height: 36px;
+  /* identical to box height */
+
+  color: #ffffff;
+
+  margin: 0 0 5px 0;
+}
+
+section.clients div.element p {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: #f5f5f5;
+
+  width: 448px;
+}
+
+section.clients button {
+  background: #ffffff;
+  box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+
+  font-family: "Helvetica";
+  font-style: italic;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 26px;
+  text-align: center;
+
+  color: #2e2f04;
+
+  margin: 0 0 50px 0;
+  width: 526px;
+  height: 75px;
+}
+
+section.work {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 200px 0;
+}
+
+section.call {
+  display: grid;
+  place-items: center;
+
+  text-align: center;
+
+  padding: 200px 0;
+}
+
+footer {
+  position: relative;
+  background: #1e1f00;
+
+  margin: 200px 0 0 0;
+  height: 500px;
+}
+
+footer img[alt="wave"] {
+  position: absolute;
+
+  bottom: calc(100% - 1px);
+  min-width: 1728px;
+  width: 100vw;
+}
+
+footer div.details {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: column;
+
+  position: absolute;
+  top: 0;
+
+  height: 100%;
+}
+
+footer div.headline {
+  transform: translateY(-220px);
+
+  margin: 0 0 0 50px;
+  width: 408px;
+}
+
+footer div.headline img {
+  margin: 0 20px 0 0;
+}
+
+footer div.headline h2 {
+  font-family: "Panchang Variable";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 35px;
+  line-height: 46px;
+
+  color: #ffffff;
+}
+
+footer div.headline p {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 20px;
+  /* identical to box height */
+
+  color: #ffffff;
+}
+
+footer div.subheadline {
+  position: absolute;
+  top: -90px;
+  margin: 0 0 0 50px;
+}
+
+footer div.subheadline hr {
+  border: 3px solid #ffffff;
+  border-radius: 20px;
+
+  width: 454.5px;
+  height: 0px;
+}
+
+footer div.subheadline p {
+  font-family: "Helvetica";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 26px;
+
+  color: #ffffff;
+
+  margin: 21px 0 0 0;
+  width: 558px;
+}
+
+footer div.container {
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  margin: 0 0 0 50px;
+}
+
+footer div.element {
+  margin: 0 140px 0 0;
+}
+
+footer div.element h2 {
+  font-family: "Panchang Variable";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 30px;
+
+  color: #ffffff;
+
+  margin: 0 0 20px 0;
+}
+
+footer div.element p {
+  font-family: "Helvetica";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  /* identical to box height */
+
+  color: #ffffff;
+
+  margin: 0 0 5px 0;
+}
+
+footer div.element img {
+  margin: 0 15px 0 0;
+  width: 23px;
+}
+
+footer div.bottom-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  width: 100vw;
+}
+
+footer div.bottom-center h5 {
+  font-family: "Helvetica";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+
+  color: #ffffff;
+}
+
+footer div.bottom-center h6 {
+  font-family: "Helvetica";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+
+  color: #ffffff;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  section.menu div.container {
+    margin: 0 30px;
+  }
+
+  section.menu div.container h1 {
+    font-size: 32px;
+    line-height: 37px;
+  }
+
+  section.menu div.container div.list {
+    margin: 32px 0 0 0;
+  }
+
+  section.menu div.container div.list a {
+    font-size: 18px;
+    line-height: 24px;
+
+    margin: 0 0 5px 0;
+  }
+
+  section.menu div.container button {
+    top: 40px;
+    right: 35px;
+  }
+
+  section.menu div.container button img {
+    width: 24px;
+  }
+
+  img[alt="2"] {
+    bottom: -1120px;
+  }
+
+  section.header img[alt="blob 3"] {
+    bottom: -60px;
+  }
+
+  canvas {
+    margin: 75px 0 0 0;
+  }
+
+  section.header {
+    padding: 0;
+  }
+
+  section.services,
+  section.values {
+    padding: 50px 0;
+  }
+
+  section.clients {
+    margin: 100px 0;
+  }
+
+  div.scroll {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+
+    margin: 50px 0 0 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  section {
+    padding: 100px 0;
+  }
+
+  section.header img[alt="blob 1"] {
+    transform: translate(-9px, -5px);
+    width: 260px;
+  }
+
+  section.header img[alt="blob 2"] {
+    transform: translate(0px, -10px);
+    width: 160px;
+  }
+
+  section.header div.upper-left {
+    top: 10px;
+    left: 10px;
+  }
+
+  section.header div.upper-left div.logo {
+    justify-content: flex-start;
+  }
+
+  section.header div.upper-left img {
+    width: 32px;
+    margin: 0 7.5px 0 0;
+  }
+
+  section.header div.upper-left h1 {
+    font-size: 13px;
+    line-height: 15px;
+  }
+
+  section.header div.upper-left p {
+    font-size: 9px;
+    line-height: 9px;
+  }
+
+  section.header div.upper-left button {
+    font-size: 8px;
+    line-height: 10px;
+    border-radius: 4px;
+
+    margin: 10px 0 0 0;
+    width: 120px;
+    height: 20px;
+  }
+
+  section.header div.upper-right {
+    top: 18px;
+    right: 15px;
+    z-index: 2;
+  }
+
+  section.header div.upper-right button img {
+    width: 24px;
+  }
+
+  /* section.header div.bottom-left {
+    bottom: 49px;
+    left: 13px;
+  }
+
+  section.header div.bottom-left img {
+    width: 16px;
+  } */
+
+  section.header div.bottom-center h1 {
+    font-size: 30px;
+    line-height: 30px;
+  }
+
+  section.header div.bottom-center h2 {
+    font-size: 15px;
+    line-height: 17px;
+
+    margin: 10px 0 20px 0;
+    width: 252px;
+  }
+
+  section.header div.bottom-center > img {
+    top: 29px;
+    width: 173px;
+  }
+
+  section.header div.bottom-center button img {
+    width: 20px;
+  }
+
+  section.services h1,
+  section.values h1,
+  section.work h1,
+  section.call h1 {
+    font-size: 21px;
+    line-height: 26px;
+
+    margin: 0 0 29px 0;
+  }
+
+  section.services div.list div.element,
+  section.services div.list div.element:nth-child(even) {
+    flex-direction: column;
+  }
+
+  section.services div.list div.element img,
+  section.values div.list div.element img {
+    width: 112px;
+  }
+
+  section.services div.list div.element div.text,
+  section.values div.list div.element div.text {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin: 19px 0 0 0;
+    width: auto;
+  }
+
+  section.services div.list div.element h2 {
+    text-align: center;
+    font-size: 17px;
+    line-height: 16px;
+
+    margin: 0 0 3px 0;
+    width: 221px;
+  }
+
+  section.services div.list div.element p {
+    text-align: left;
+    font-size: 13px;
+    line-height: 13px;
+    width: 217px;
+    margin: 5px 0 0 0;
+  }
+
+  section.services div.list div.element button {
+    border-radius: 3px;
+    font-size: 10px;
+    line-height: 12px;
+
+    width: 164px;
+    height: 23px;
+  }
+
+  section.values div.list div.element.one {
+    margin: 0;
+  }
+
+  section.values div.list div.element p {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  section.clients h1 {
+    font-size: 21px;
+    line-height: 26px;
+
+    margin: 0 0 22.19px 0;
+  }
+
+  section.clients div.element {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0 17px 0;
+    width: auto;
+  }
+
+  section.clients div.element img {
+    margin: 0 0 10px 0;
+    width: 92px;
+  }
+
+  section.clients div.element h2 {
+    text-align: center;
+    font-size: 17px;
+    line-height: 16x;
+
+    margin: 0 0 4px 0;
+  }
+
+  section.clients div.element p {
+    font-size: 13px;
+    line-height: 13px;
+    width: 262px;
+  }
+
+  section.clients button {
+    border-radius: 3px;
+    font-size: 11px;
+
+    margin: 10px 0 0 0;
+    width: 211px;
+    height: 32px;
+  }
+
+  section.work {
+    padding: 0;
+  }
+
+  section.work div.row {
+    flex-direction: column;
+  }
+
+  section.work img {
+    margin: 0 0 15px 0;
+    width: 245.15px;
+  }
+
+  section.work > img {
+    width: 330px;
+    margin: 0 0 45px 0;
+  }
+
+  footer {
+    margin: 20px 0 0 0;
+    padding: 15px 0 75px 0;
+    height: auto;
+  }
+
+  footer img[alt="wave"] {
+    min-width: 100vw;
+    width: 100vw;
+  }
+
+  footer div.headline {
+    transform: none;
+    position: relative;
+
+    margin: 0 0 0 20px;
+    width: 120.43px;
+  }
+
+  footer div.headline img {
+    margin: 0 3.73px 0 0;
+    width: 27.27px;
+  }
+
+  footer div.headline h2 {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  footer div.headline p {
+    font-size: 6px;
+    line-height: 7px;
+  }
+
+  footer div.container.row {
+    transform: none;
+    flex-direction: column;
+
+    margin: 10px 0 0 20px;
+  }
+
+  footer div.subheadline {
+    position: relative;
+    top: 0;
+    margin: 0 0 0 20px;
+  }
+
+  footer div.subheadline hr {
+    border: 1px solid white;
+    margin: 5px 0 0 0;
+    width: 120.43px;
+  }
+
+  footer div.subheadline p {
+    font-size: 8px;
+    line-height: 9px;
+
+    margin: 6px 0 0 0;
+    width: auto;
+  }
+
+  footer div.element {
+    margin: 0 0 40px 0;
+  }
+
+  footer div.element h2 {
+    font-size: 14px;
+    line-height: 18px;
+
+    margin: 0 0 8px 0;
+  }
+
+  footer div.element p {
+    font-size: 9px;
+    line-height: 10px;
+
+    margin: 0 0 4px 0;
+  }
+
+  footer div.element img {
+    width: 13px;
+  }
+
+  footer div.bottom-center {
+    height: auto;
+  }
+
+  footer div.bottom-center h5 {
+    font-size: 8px;
+    line-height: 9px;
+  }
+
+  footer div.bottom-center h6 {
+    font-size: 6px;
+    line-height: 7px;
+  }
+
+  footer div.details {
+    position: relative;
+
+    margin: 20px 0 0 0;
+    height: auto;
+  }
 }

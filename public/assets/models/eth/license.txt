@@ -1,0 +1,11 @@
+Model Information:
+* title:	ETH Coin
+* source:	https://sketchfab.com/3d-models/eth-coin-e6bd61ef2fa54308ba0ef65507ead9c9
+* author:	junior.phillip (https://sketchfab.com/junior.phillip)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "ETH Coin" (https://sketchfab.com/3d-models/eth-coin-e6bd61ef2fa54308ba0ef65507ead9c9) by junior.phillip (https://sketchfab.com/junior.phillip) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
