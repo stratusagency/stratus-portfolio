@@ -161,29 +161,8 @@ export default function App() {
 	return (
 		<>
 			<Head>
-				<meta charset="utf-8" />
-				<link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<meta name="theme-color" content="#000000" />
-				<link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-				<meta name="google-site-verification" content="A8mouogszewpmVHxgnOtBBczFt2aT9Smx92xZDZS-tc" />
-				<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
 				<title>STRATUS — Expert Blockchain Engineer</title>
-				<meta name="title" content="STRATUS — Expert Blockchain Engineer" />
-				<meta name="description" content="Metaverse and Blockchain solutions provider. Trusted by Metaverse GT." />
-
-				<meta property="og:type" content="website" />
-				<meta property="og:url" content="https://stratus-dev.netlify.app/" />
-				<meta property="og:title" content="STRATUS — Expert Blockchain Engineer" />
-				<meta property="og:description" content="Metaverse and Blockchain solutions provider. Trusted by Metaverse GT." />
-				<meta property="og:image" content="" />
-
-				<meta property="twitter:card" content="summary_large_image" />
-				<meta property="twitter:url" content="https://stratus-dev.netlify.app/" />
-				<meta property="twitter:title" content="STRATUS — Expert Blockchain Engineer" />
-				<meta property="twitter:description" content="Metaverse and Blockchain solutions provider. Trusted by Metaverse GT." />
-				<meta property="twitter:image" content="" />
+				<link rel="shortcut icon" href="/static/favicon.ico" />
 			</Head>
 
 			<picture>
