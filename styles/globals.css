@@ -371,11 +371,11 @@ section.work div.titles h2 {
 }
 
 section.work div.left {
-  -ms-grid-column: span 1;
+  /* -ms-grid-column: span 1; */
   grid-column-start: span 1;
   -ms-grid-column-span: 1;
   grid-column-end: span 1;
-  -ms-grid-row: span 1;
+  /* -ms-grid-row: span 1; */
   grid-row-start: span 1;
   -ms-grid-row-span: 1;
   grid-row-end: span 1;
