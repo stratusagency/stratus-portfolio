@@ -195,6 +195,7 @@ section.portfolio {
 section.portfolio div.center {
   display: -ms-grid;
   display: grid;
+  margin-top: 100px;
   margin-right: 2vw;
   margin-left: 2vw;
   -webkit-box-flex: 0;
@@ -210,23 +211,10 @@ section.portfolio div.center {
   grid-template-rows: auto;
 }
 
-section.portfolio div.left {
-  display: -ms-grid;
-  display: grid;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  grid-auto-columns: 1fr;
-  grid-column-gap: 2vw;
-  grid-row-gap: 2vw;
-  -ms-grid-columns: 1fr;
-  grid-template-columns: 1fr;
-  -ms-grid-rows: auto;
-  grid-template-rows: auto;
-}
-
+section.portfolio div.left,
 section.portfolio div.right {
+  transform: translateY(-100px);
+
   display: -ms-grid;
   display: grid;
   -webkit-box-flex: 0;
@@ -441,7 +429,7 @@ section.track > div {
 
 section.track img {
   position: relative;
-  top: -7px;
+  /* top: -7px; */
   margin-right: 24px;
   margin-left: 24px;
 }
@@ -795,4 +783,201 @@ footer div.copyrights p {
   -webkit-transition: color 400ms cubic-bezier(0.23, 1, 0.32, 1);
   transition: color 400ms cubic-bezier(0.23, 1, 0.32, 1);
   font-size: 14px;
+}
+
+@media screen and (max-width: 991px) {
+  h2 {
+    font-size: 20px;
+  }
+
+  section,
+  footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  nav {
+    position: static;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #fff;
+    transform: none;
+    width: 100vw;
+  }
+
+  nav h2 {
+    display: none;
+  }
+
+  nav div.logo {
+    margin: 0 0 0 15px;
+  }
+
+  nav div.logo img {
+    height: 31px;
+  }
+
+  nav div.hamburger {
+    margin: 0 20px 0 0;
+  }
+
+  nav div.hamburger img {
+    width: 20px;
+  }
+
+  header {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  header h1 {
+    font-size: 8vw;
+  }
+
+  section.portfolio {
+    height: auto;
+  }
+
+  section.portfolio div.left,
+  section.portfolio div.right {
+    transform: none;
+  }
+
+  section.portfolio div.center {
+    margin-top: 0;
+  }
+
+  section.values {
+    padding-bottom: 0px;
+  }
+
+  section.values h2 {
+    margin: 0 0 35px 0;
+  }
+
+  section.values div.values-container {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  section.values div.values-container div.element {
+    padding: 24px;
+  }
+
+  section.work div.titles h3 {
+    font-size: 16px;
+  }
+
+  section.work div.titles h2 {
+    font-size: 28px;
+  }
+
+  section.work div.row {
+    grid-column-gap: 24px;
+    grid-row-gap: 24px;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  section.work div.row div.right {
+    margin: 0;
+  }
+
+  section.work div.row div.left div.element:last-child {
+    margin: 0;
+  }
+
+  section.work div.element {
+    margin: 0 0 20px 0;
+  }
+
+  section.work div.element img {
+    height: 385px;
+  }
+
+  section.services h2 {
+    width: 100%;
+  }
+
+  section.services div.row {
+    grid-column-gap: 24px;
+    grid-row-gap: 24px;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: none;
+  }
+
+  section.services div.services-item {
+    width: 100%;
+  }
+
+  section.qa {
+    flex-direction: column;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  section.qa h2 {
+    font-size: 20px;
+    margin: 0 0 25px 0;
+    width: 100%;
+  }
+
+  section.qa > div {
+    width: 100%;
+  }
+
+  section.qa div.element {
+    padding-right: 24px;
+    padding-left: 24px;
+    width: 100%;
+  }
+
+  section.qa div.element div.question {
+    width: 100%;
+  }
+
+  section.qa div.element div.question h3 {
+    width: 80%;
+  }
+
+  section.call-to-action {
+    min-height: 410px;
+  }
+
+  section.call-to-action h2 {
+    font-size: 28px;
+    width: 100%;
+  }
+
+  section.call-to-action a {
+    width: 100%;
+  }
+
+  footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  footer > div.row:first-child {
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer div.copyrights {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 24px;
+    grid-row-gap: 24px;
+    grid-template-rows: auto;
+  }
+
+  footer div.copyrights {
+    grid-column-gap: 24px;
+    grid-row-gap: 8px;
+  }
+
+  footer div.copyrights p {
+    white-space: nowrap;
+  }
 }

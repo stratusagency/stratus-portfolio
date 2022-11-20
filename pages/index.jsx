@@ -6,20 +6,17 @@ import Link from "next/link"
 
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import gsap from "gsap"
+import Footer from "./components/Footer"
 
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
 	const hamburgerButtonRef = useRef();
 
+	const [timeline, setTimeline] = useState();
+
 	useEffect(() => {
-		// Only neccessary to toggle the overflow and show what's going on behind the scenes
-		// const wrapper = document.querySelector(".track-wrap");
-		// document.querySelector(".toggle").addEventListener("click", () => wrapper.classList.toggle("show-overflow"));
-
-
-
-		gsap.registerPlugin(ScrollTrigger);
-
 		// Create array of elements to tween on
 		const boxesTop = gsap.utils.toArray(".track-wrap.top .element");
 
@@ -36,11 +33,8 @@ export default function App() {
 		ScrollTrigger.create({
 			start: 0,
 			end: 'max',
-			pin: '.container',
-			onUpdate: function (self) {
-				loopTop.timeScale(1)
-				// loopBottom.timeScale(1)
-			}
+			// pin: '.container',
+			onUpdate: () => loopTop.timeScale(1)
 		})
 
 		// -------------------------------------------------------------------------------------------------------------------------------------
@@ -117,18 +111,28 @@ export default function App() {
 			return tl;
 		}
 
+		/**
+		 * TIMELINE PORTFOLIO
+		 */
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: 'header',
+				endTrigger: '.portfolio',
+				start: "top top",
+				end: 'bottom top',
+				markers: false,
+				scrub: 1,
+			}
+		})
 
+		tl.to('.portfolio .center', { yPercent: -25 }, 0)
+		tl.to(['.portfolio .left', '.portfolio .right'], { yPercent: 10 }, 0)
 
+		setTimeline(tl);
 
-
-
-
-
-
-
-
-
-
+		/**
+		 * BUTTONS ANIMS
+		 */
 		const buttonsQA = document.querySelectorAll('section.qa div.element')
 		const buttonsProjects = document.querySelectorAll('section.work div.element div.project-hover')
 
@@ -195,7 +199,7 @@ export default function App() {
 
 			<nav>
 				<div className="logo">
-					<Link href="/">
+					<Link href="/" onClick={() => timeline.killAll()}>
 						<Image
 							src="http://assets.stratusagency.io/logo_large_black.svg"
 							alt=""
@@ -227,94 +231,94 @@ export default function App() {
 			<section className="portfolio">
 				<div className="left">
 					<picture>
-						<source srcSet="https://assets.website-files.com/62384332bac7f3d4f139ee1e/624d619f9baa9d24389f2eda_home-hero-row1-01.jpg" type="image/jpg" />
-						<img src="https://assets.website-files.com/62384332bac7f3d4f139ee1e/624d619f9baa9d24389f2eda_home-hero-row1-01.jpg" loading="lazy" alt="" className="showcase-image" />
+						<source srcSet="http://assets.stratusagency.io/solidity-docs.webp" type="image/webp" />
+						<img src="http://assets.stratusagency.io/solidity-docs.webp" loading="lazy" alt="" className="showcase-image" />
 					</picture>
 
 					<picture>
-						<source srcSet="https://assets.website-files.com/62384332bac7f3d4f139ee1e/624d61a098b5b6294f13e885_home-hero-row1-02.jpg" type="image/jpg" />
-						<img src="https://assets.website-files.com/62384332bac7f3d4f139ee1e/624d61a098b5b6294f13e885_home-hero-row1-02.jpg" loading="lazy" alt="" className="showcase-image" />
+						<source srcSet="http://assets.stratusagency.io/bbcs-ltdd.webp" type="image/webp" />
+						<img src="http://assets.stratusagency.io/bbcs-ltdd.webp" loading="lazy" alt="" className="showcase-image" />
 					</picture>
 
 					<picture>
-						<source srcSet="http://assets.stratusagency.io/mont_blanc_climate_change.webp" type="image/webp" />
-						<img src="http://assets.stratusagency.io/mont_blanc_climate_change.webp" loading="eager" alt="" className="showcase-image" />
+						<source srcSet="http://assets.stratusagency.io/peer3.webp" type="image/webp" />
+						<img src="http://assets.stratusagency.io/peer3.webp" loading="eager" alt="" className="showcase-image" />
 					</picture>
 				</div>
 
 				<div className="center">
 					<picture>
-						<source srcSet="http://assets.stratusagency.io/peer3.jpg" type="image/jpg" />
-						<img src="http://assets.stratusagency.io/peer3.jpg" loading="eager" alt="" className="showcase-main-image" />
+						<source srcSet="http://assets.stratusagency.io/megt.webp" type="image/webp" />
+						<img src="http://assets.stratusagency.io/megt.webp" loading="eager" alt="" className="showcase-main-image" />
 					</picture>
 
 					<picture>
-						<source srcSet="http://assets.stratusagency.io/r3port.jpg" type="image/jpg" />
-						<img src="http://assets.stratusagency.io/r3port.jpg" loading="eager" alt="" className="showcase-main-image" />
+						<source srcSet="http://assets.stratusagency.io/mont_blanc_climate_change.webp" type="image/webp" />
+						<img src="http://assets.stratusagency.io/mont_blanc_climate_change.webp" loading="eager" alt="" className="showcase-main-image" />
 					</picture>
 
 					<picture>
-						<source srcSet="http://assets.stratusagency.io/peer3.jpg" type="image/jpg" />
-						<img src="http://assets.stratusagency.io/peer3.jpg" loading="eager" alt="" className="showcase-main-image" />
+						<source srcSet="http://assets.stratusagency.io/nft-generator.webp" type="image/webp" />
+						<img src="http://assets.stratusagency.io/nft-generator.webp" loading="eager" alt="" className="showcase-main-image" />
 					</picture>
 				</div>
 
 				<div className="right">
 					<picture>
-						<source srcSet="http://assets.stratusagency.io/mont_blanc_climate_change.webp" type="image/webp" />
-						<img src="http://assets.stratusagency.io/mont_blanc_climate_change.webp" loading="eager" alt="" className="showcase-image" />
+						<source srcSet="http://assets.stratusagency.io/netalys.webp" type="image/webp" />
+						<img src="http://assets.stratusagency.io/netalys.webp" loading="eager" alt="" className="showcase-image" />
 					</picture>
 
 					<picture>
-						<source srcSet="https://assets.website-files.com/62384332bac7f3d4f139ee1e/624d61a098b5b676ad13e886_home-hero-row3-02.jpg" type="image/webp" />
-						<img src="https://assets.website-files.com/62384332bac7f3d4f139ee1e/624d61a098b5b676ad13e886_home-hero-row3-02.jpg" loading="lazy" alt="" className="showcase-image" />
+						<source srcSet="http://assets.stratusagency.io/bbcs-ltdd.webp" type="image/webp" />
+						<img src="http://assets.stratusagency.io/bbcs-ltdd.webp" loading="lazy" alt="" className="showcase-image" />
 					</picture>
 
 					<picture>
-						<source srcSet="https://assets.website-files.com/62384332bac7f3d4f139ee1e/624d61a09e9615861d5e6727_home-hero-row3-03.jpg" type="image/webp" />
-						<img src="https://assets.website-files.com/62384332bac7f3d4f139ee1e/624d61a09e9615861d5e6727_home-hero-row3-03.jpg" loading="lazy" alt="" className="showcase-image" />
+						<source srcSet="http://assets.stratusagency.io/launcherauto.webp" type="image/webp" />
+						<img src="http://assets.stratusagency.io/launcherauto.webp" loading="eager" alt="" className="showcase-image" />
 					</picture>
 				</div>
 			</section>
 
 			<section className="values">
-				<h2>The leading design agency based in nyc focused on producing beautiful, clever pieces of communication</h2>
+				<h2>The leading web 3.0 agency based in france focused on producing pieces of futuristic communication and tools</h2>
 
 				<div className="values-container">
 					<ValueElement options={{
 						icon_url: "http://assets.stratusagency.io/computer.png",
 						title: "Giving the track of the work in live",
-						description: "Cursus gravida varius pulvinar faucibus elementum eu eu pellentesque. Curabitur urna, nulla rhoncus, tellus."
+						description: "Follow your work at real time, without waiting for the opening hours to ask us the progress."
 					}} />
 
 					<ValueElement options={{
 						icon_url: "http://assets.stratusagency.io/chat.png",
 						title: "Giving our tips as experts",
-						description: "Cursus gravida varius pulvinar faucibus elementum eu eu pellentesque. Curabitur urna, nulla rhoncus, tellus."
+						description: "We are here to help you, to provide you our best piece of advice. Contact us now to get more details!"
 					}} />
 
 					<ValueElement options={{
 						icon_url: "http://assets.stratusagency.io/hand-shake.png",
 						title: "Building long-term partnerships",
-						description: "Cursus gravida varius pulvinar faucibus elementum eu eu pellentesque. Curabitur urna, nulla rhoncus, tellus."
+						description: "We do not work with you for once. We work with you for several works, several years."
 					}} />
 
 					<ValueElement options={{
 						icon_url: "http://assets.stratusagency.io/question.png",
 						title: "Responding in 12h delay",
-						description: "Cursus gravida varius pulvinar faucibus elementum eu eu pellentesque. Curabitur urna, nulla rhoncus, tellus."
+						description: "This is our promise to you forever. We will respond to you as quickly as possible, no matter what the situation."
 					}} />
 
 					<ValueElement options={{
 						icon_url: "http://assets.stratusagency.io/stars.png",
 						title: "Making all of our clients unique",
-						description: "Cursus gravida varius pulvinar faucibus elementum eu eu pellentesque. Curabitur urna, nulla rhoncus, tellus."
+						description: "We do not provide prices or quotes without analyzing your situation."
 					}} />
 
 					<ValueElement options={{
-						icon_url: "https://assets.website-files.com/62384332bac7f3d4f139ee1e/624d6ca3a114b2d3d5719753_perks-icon-01.svg",
-						title: "Teamwork",
-						description: "Cursus gravida varius pulvinar faucibus elementum eu eu pellentesque. Curabitur urna, nulla rhoncus, tellus."
+						icon_url: "http://assets.stratusagency.io/heart.png",
+						title: "Working with everyone",
+						description: "Whether you are a business based in a specific field, you should have the chance to dive into Web 3.0!"
 					}} />
 				</div>
 			</section>
@@ -328,41 +332,47 @@ export default function App() {
 				<div className="row">
 					<div className="left">
 						<WorkElement options={{
-							icon_url: "https://assets.website-files.com/624dbf72a63c9fd340c1fa43/624dc1161fae2936043c76e6_work-thumb-01.jpg",
-							date: 2022,
-							title: "NFTCARDS"
+							icon_url: "http://assets.stratusagency.io/bbcs-ltdd-work.webp",
+							url: 'https://bbcs.netlify.app',
+							date: 2021,
+							title: "BBCS & LTDD"
 						}} />
 
 						<WorkElement options={{
-							icon_url: "https://assets.website-files.com/624dbf72a63c9fd340c1fa43/624dc30100b97edea3bd9737_work-thumb-02.jpg",
+							icon_url: "http://assets.stratusagency.io/mont-blanc-climate-change-work.webp",
+							url: 'https://mont-blanc-climate-change.netlify.app',
 							date: 2022,
-							title: "NFTCARDS"
+							title: "MONT BLANC — CLIMATE CHANGE"
 						}} />
 
 						<WorkElement options={{
-							icon_url: "https://assets.website-files.com/624dbf72a63c9fd340c1fa43/624dc38aab88d14d289f67f2_work-thumb-03.jpg",
+							icon_url: "http://assets.stratusagency.io/netalys-work.webp",
+							url: 'https://netalys-hexagon.netlify.app/',
 							date: 2022,
-							title: "NFTCARDS"
+							title: "NETALYS"
 						}} />
 					</div>
 
 					<div className="right">
 						<WorkElement options={{
-							icon_url: "https://assets.website-files.com/624dbf72a63c9fd340c1fa43/624dc3bd579ad2884b23da5c_work-thumb-04.jpg",
+							icon_url: "http://assets.stratusagency.io/megt-work.webp",
+							url: 'https://megt.io',
 							date: 2022,
-							title: "NFTCARDS"
+							title: "METAVERSE GT"
 						}} />
 
 						<WorkElement options={{
-							icon_url: "https://assets.website-files.com/624dbf72a63c9fd340c1fa43/624dc41a134bf1b03d2ea7a4_work-thumb-05.jpg",
+							icon_url: "http://assets.stratusagency.io/nft-generator-work.webp",
+							url: 'https://form.questionscout.com/6356e687efdc2d82c05e554a',
 							date: 2022,
-							title: "NFTCARDS"
+							title: "NFT GENERATOR"
 						}} />
 
 						<WorkElement options={{
-							icon_url: "https://assets.website-files.com/624dbf72a63c9fd340c1fa43/624dc469afeb72153883f44d_work-thumb-06.jpg",
+							icon_url: "http://assets.stratusagency.io/solidity-docs-work.webp",
+							url: 'https://docs.soliditylang.org/fr/v0.8.11/',
 							date: 2022,
-							title: "NFTCARDS"
+							title: "SOLIDITY DOCUMENTATION"
 						}} />
 					</div>
 				</div>
@@ -441,7 +451,7 @@ export default function App() {
 			<section className="services">
 				<hr />
 
-				<h2>GROUNDWORK SERVICES LIST</h2>
+				<h2>STRATUS AGENCY SERVICES LIST</h2>
 
 				<div className="row">
 					<div className="services-item">
@@ -493,97 +503,14 @@ export default function App() {
 			<section className="call-to-action">
 				<h2>discover without limits start your project now</h2>
 
-				<Link href="/contact">
+				<a href="https://calendly.com/stratus_agency/meet" target="_blank" rel="noopener noreferrer">
 					GET STARTED
-				</Link>
+				</a>
 
 				<div className="background"></div>
 			</section>
 
-			<footer>
-				<div className="row">
-					<div className="column space-between">
-						<div>
-							<Image
-								src="http://assets.stratusagency.io/logo_large_black.svg"
-								alt=""
-								width={130}
-								height={50}
-							/>
-
-							<p>Metaverse and Blockchain Solutions Provider. Trusted by Metaverse GT.</p>
-
-							<div className="social-wrap">
-								<a href="https://twitter.com/stratusagency">
-									<Image
-										src="https://assets.website-files.com/62384332bac7f3d4f139ee1e/624de48ff5ee308119faf99a_social-icon-instagram.svg"
-										alt=""
-										width={16}
-										height={17}
-									/>
-								</a>
-
-								<a href="https://twitter.com/stratusagency">
-									<Image
-										src="https://assets.website-files.com/62384332bac7f3d4f139ee1e/624de48ff5ee308119faf99a_social-icon-instagram.svg"
-										alt=""
-										width={16}
-										height={17}
-									/>
-								</a>
-
-								<a href="https://twitter.com/stratusagency">
-									<Image
-										src="https://assets.website-files.com/62384332bac7f3d4f139ee1e/624de48ff5ee308119faf99a_social-icon-instagram.svg"
-										alt=""
-										width={16}
-										height={17}
-									/>
-								</a>
-
-								<a href="https://twitter.com/stratusagency">
-									<Image
-										src="https://assets.website-files.com/62384332bac7f3d4f139ee1e/624de48ff5ee308119faf99a_social-icon-instagram.svg"
-										alt=""
-										width={16}
-										height={17}
-									/>
-								</a>
-							</div>
-						</div>
-					</div>
-
-					<div className="column pages">
-						<h2>PAGES</h2>
-
-						<div className="list">
-							<Link href="/">Home</Link>
-							<Link href="/work">Work</Link>
-							<Link href="/blog">Blog</Link>
-							<Link href="/contact">Contact</Link>
-						</div>
-					</div>
-
-					<div className="column utility">
-						<h2>LEGALS</h2>
-
-						<div className="list">
-							<Link href="/rgpd">RGPD</Link>
-							<Link href="/legal">Legal</Link>
-						</div>
-					</div>
-				</div>
-
-				<div className="row copyrights">
-					<p>Copyright © STRATUS Agency</p>
-
-					<div></div>
-
-					<a href="https://www.leonardomattar.com/" rel="nopenner noreferrer" target="_blank">
-						<p>© Template by Leonardo Mattar</p>
-					</a>
-				</div>
-			</footer>
+			<Footer timeline={timeline} />
 		</>
 	);
 }
@@ -617,15 +544,17 @@ const WorkElement = ({ options }) => {
 				height={730}
 			/>
 
-			<div className="project-hover">
-				<div className="top">
-					<p>{options.date}</p>
-				</div>
+			<a href={options.url} target="_blank" rel="noopener noreferrer">
+				<div className="project-hover">
+					<div className="top">
+						<p>{options.date}</p>
+					</div>
 
-				<div className="bottom">
-					<h2>{options.title}</h2>
+					<div className="bottom">
+						<h2>{options.title}</h2>
+					</div>
 				</div>
-			</div>
+			</a>
 		</div>
 	)
 }
