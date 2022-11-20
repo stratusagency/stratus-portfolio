@@ -1,6 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
 
+import logoLargeBlackImage from "../../static/images/logo-large-black.svg"
+import instagramImage from "../../static/images/instagram.svg"
+import gitHubImage from "../../static/images/github.svg"
+import twitterImage from "../../static/images/twitter.svg"
+
 export default function Footer(options) {
     const tl = options.timeline;
 
@@ -10,7 +15,7 @@ export default function Footer(options) {
                 <div className="column space-between">
                     <div>
                         <Image
-                            src="http://assets.stratusagency.io/logo_large_black.svg"
+                            src={logoLargeBlackImage}
                             alt=""
                             width={130}
                             height={50}
@@ -21,7 +26,7 @@ export default function Footer(options) {
                         <div className="social-wrap">
                             <a href="https://www.instagram.com/stratusagency_official/" target="_blank" rel="noopener noreferrer">
                                 <Image
-                                    src="http://assets.stratusagency.io/instagram.svg"
+                                    src={instagramImage}
                                     alt=""
                                     width={16}
                                     height={17}
@@ -30,7 +35,7 @@ export default function Footer(options) {
 
                             <a href="https://github.com/stratusagency" target="_blank" rel="noopener noreferrer">
                                 <Image
-                                    src="http://assets.stratusagency.io/github.svg"
+                                    src={gitHubImage}
                                     alt=""
                                     width={16}
                                     height={17}
@@ -39,7 +44,7 @@ export default function Footer(options) {
 
                             <a href="https://twitter.com/stratusagency" target="_blank" rel="noopener noreferrer">
                                 <Image
-                                    src="http://assets.stratusagency.io/twitter.svg"
+                                    src={twitterImage}
                                     alt=""
                                     width={16}
                                     height={17}

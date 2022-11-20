@@ -26,11 +26,10 @@ class MyDocument extends Document {
                     <meta charset="utf-8" />
                     <link rel="icon" href="static/favicon.ico" />
                     <link rel="shortcut icon" href="/static/favicon.ico" />
-                    {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
                     <meta name="theme-color" content="#000000" />
-                    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+                    <link rel="apple-touch-icon" href="/static/logo192.png" />
                     <meta name="google-site-verification" content="A8mouogszewpmVHxgnOtBBczFt2aT9Smx92xZDZS-tc" />
-                    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+                    <link rel="manifest" href="/static/manifest.json" />
 
                     <meta name="title" content="STRATUS — Expert Blockchain Engineer" />
                     <meta name="description" content="Metaverse, Blockchain and Web 3.0 solutions provider. Trusted by Metaverse GT." />

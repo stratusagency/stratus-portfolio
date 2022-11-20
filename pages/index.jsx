@@ -6,8 +6,32 @@ import Link from "next/link"
 
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import gsap from "gsap"
+
 import Footer from "./components/Footer"
 
+import logoLargeBlackImage from "../static/images/logo-large-black.svg"
+import solidityDocsImage from "../static/images/solidity-docs.webp"
+import solidityDocsWorkImage from "../static/images/solidity-docs-work.webp"
+import bbcsLtddImage from "../static/images/bbcs-ltdd.webp"
+import bbcsLtddWorkImage from "../static/images/bbcs-ltdd-work.webp"
+import peer3Image from "../static/images/peer3.webp"
+import megtImage from "../static/images/megt.webp"
+import megtWorkImage from "../static/images/megt-work.webp"
+import montBlancClimateChangeImage from "../static/images/mont-blanc-climate-change.webp"
+import montBlancClimateChangeWorkImage from "../static/images/mont-blanc-climate-change-work.webp"
+import nftGeneratorImage from "../static/images/nft-generator.webp"
+import nftGeneratorWorkImage from "../static/images/nft-generator-work.webp"
+import netalysImage from "../static/images/netalys.webp"
+import netalysWorkImage from "../static/images/netalys-work.webp"
+import launcherAutoImage from "../static/images/launcher-auto.webp"
+import hamburgerIcon from "../static/images/hamburger-icon.svg"
+import iconBlackImage from "../static/images/icon-black.webp"
+import questionImage from "../static/images/question.png"
+import chatImage from "../static/images/chat.png"
+import computerImage from "../static/images/computer.png"
+import handShakeImage from "../static/images/hand-shake.png"
+import heartImage from "../static/images/heart.png"
+import starsImage from "../static/images/stars.png"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -195,14 +219,12 @@ export default function App() {
 				<link rel="shortcut icon" href="/static/favicon.ico" />
 			</Head>
 
-			<div className="grain"></div>
-
 			<nav>
 				<div className="logo">
 					<Link href="/" onClick={() => timeline.killAll()}>
 						<Image
-							src="http://assets.stratusagency.io/logo_large_black.svg"
-							alt=""
+							src={logoLargeBlackImage}
+							alt="logo"
 							width={130}
 							height={77}
 						/>
@@ -214,8 +236,8 @@ export default function App() {
 				<div className="hamburger">
 					<button ref={hamburgerButtonRef}>
 						<Image
-							src="http://assets.stratusagency.io/hamburger.svg"
-							alt=""
+							src={hamburgerIcon}
+							alt="icon button"
 							width={30}
 							height={30}
 						/>
@@ -230,54 +252,15 @@ export default function App() {
 
 			<section className="portfolio">
 				<div className="left">
-					<picture>
-						<source srcSet="http://assets.stratusagency.io/solidity-docs.webp" type="image/webp" />
-						<img src="http://assets.stratusagency.io/solidity-docs.webp" loading="lazy" alt="" className="showcase-image" />
-					</picture>
-
-					<picture>
-						<source srcSet="http://assets.stratusagency.io/bbcs-ltdd.webp" type="image/webp" />
-						<img src="http://assets.stratusagency.io/bbcs-ltdd.webp" loading="lazy" alt="" className="showcase-image" />
-					</picture>
-
-					<picture>
-						<source srcSet="http://assets.stratusagency.io/peer3.webp" type="image/webp" />
-						<img src="http://assets.stratusagency.io/peer3.webp" loading="eager" alt="" className="showcase-image" />
-					</picture>
+					<PortfolioImagesColumn list={[solidityDocsImage, bbcsLtddImage, peer3Image]} />
 				</div>
 
 				<div className="center">
-					<picture>
-						<source srcSet="http://assets.stratusagency.io/megt.webp" type="image/webp" />
-						<img src="http://assets.stratusagency.io/megt.webp" loading="eager" alt="" className="showcase-main-image" />
-					</picture>
-
-					<picture>
-						<source srcSet="http://assets.stratusagency.io/mont_blanc_climate_change.webp" type="image/webp" />
-						<img src="http://assets.stratusagency.io/mont_blanc_climate_change.webp" loading="eager" alt="" className="showcase-main-image" />
-					</picture>
-
-					<picture>
-						<source srcSet="http://assets.stratusagency.io/nft-generator.webp" type="image/webp" />
-						<img src="http://assets.stratusagency.io/nft-generator.webp" loading="eager" alt="" className="showcase-main-image" />
-					</picture>
+					<PortfolioImagesColumn list={[megtImage, montBlancClimateChangeImage, nftGeneratorImage]} />
 				</div>
 
 				<div className="right">
-					<picture>
-						<source srcSet="http://assets.stratusagency.io/netalys.webp" type="image/webp" />
-						<img src="http://assets.stratusagency.io/netalys.webp" loading="eager" alt="" className="showcase-image" />
-					</picture>
-
-					<picture>
-						<source srcSet="http://assets.stratusagency.io/bbcs-ltdd.webp" type="image/webp" />
-						<img src="http://assets.stratusagency.io/bbcs-ltdd.webp" loading="lazy" alt="" className="showcase-image" />
-					</picture>
-
-					<picture>
-						<source srcSet="http://assets.stratusagency.io/launcherauto.webp" type="image/webp" />
-						<img src="http://assets.stratusagency.io/launcherauto.webp" loading="eager" alt="" className="showcase-image" />
-					</picture>
+					<PortfolioImagesColumn list={[netalysImage, bbcsLtddImage, launcherAutoImage]} />
 				</div>
 			</section>
 
@@ -286,37 +269,37 @@ export default function App() {
 
 				<div className="values-container">
 					<ValueElement options={{
-						icon_url: "http://assets.stratusagency.io/computer.png",
+						icon_url: computerImage,
 						title: "Giving the track of the work in live",
 						description: "Follow your work at real time, without waiting for the opening hours to ask us the progress."
 					}} />
 
 					<ValueElement options={{
-						icon_url: "http://assets.stratusagency.io/chat.png",
+						icon_url: chatImage,
 						title: "Giving our tips as experts",
 						description: "We are here to help you, to provide you our best piece of advice. Contact us now to get more details!"
 					}} />
 
 					<ValueElement options={{
-						icon_url: "http://assets.stratusagency.io/hand-shake.png",
+						icon_url: handShakeImage,
 						title: "Building long-term partnerships",
 						description: "We do not work with you for once. We work with you for several works, several years."
 					}} />
 
 					<ValueElement options={{
-						icon_url: "http://assets.stratusagency.io/question.png",
+						icon_url: questionImage,
 						title: "Responding in 12h delay",
 						description: "This is our promise to you forever. We will respond to you as quickly as possible, no matter what the situation."
 					}} />
 
 					<ValueElement options={{
-						icon_url: "http://assets.stratusagency.io/stars.png",
+						icon_url: starsImage,
 						title: "Making all of our clients unique",
 						description: "We do not provide prices or quotes without analyzing your situation."
 					}} />
 
 					<ValueElement options={{
-						icon_url: "http://assets.stratusagency.io/heart.png",
+						icon_url: heartImage,
 						title: "Working with everyone",
 						description: "Whether you are a business based in a specific field, you should have the chance to dive into Web 3.0!"
 					}} />
@@ -332,21 +315,21 @@ export default function App() {
 				<div className="row">
 					<div className="left">
 						<WorkElement options={{
-							icon_url: "http://assets.stratusagency.io/bbcs-ltdd-work.webp",
+							icon_url: bbcsLtddWorkImage,
 							url: 'https://bbcs.netlify.app',
 							date: 2021,
 							title: "BBCS & LTDD"
 						}} />
 
 						<WorkElement options={{
-							icon_url: "http://assets.stratusagency.io/mont-blanc-climate-change-work.webp",
+							icon_url: montBlancClimateChangeWorkImage,
 							url: 'https://mont-blanc-climate-change.netlify.app',
 							date: 2022,
 							title: "MONT BLANC — CLIMATE CHANGE"
 						}} />
 
 						<WorkElement options={{
-							icon_url: "http://assets.stratusagency.io/netalys-work.webp",
+							icon_url: netalysWorkImage,
 							url: 'https://netalys-hexagon.netlify.app/',
 							date: 2022,
 							title: "NETALYS"
@@ -355,21 +338,21 @@ export default function App() {
 
 					<div className="right">
 						<WorkElement options={{
-							icon_url: "http://assets.stratusagency.io/megt-work.webp",
+							icon_url: megtWorkImage,
 							url: 'https://megt.io',
 							date: 2022,
 							title: "METAVERSE GT"
 						}} />
 
 						<WorkElement options={{
-							icon_url: "http://assets.stratusagency.io/nft-generator-work.webp",
+							icon_url: nftGeneratorWorkImage,
 							url: 'https://form.questionscout.com/6356e687efdc2d82c05e554a',
 							date: 2022,
 							title: "NFT GENERATOR"
 						}} />
 
 						<WorkElement options={{
-							icon_url: "http://assets.stratusagency.io/solidity-docs-work.webp",
+							icon_url: solidityDocsWorkImage,
 							url: 'https://docs.soliditylang.org/fr/v0.8.11/',
 							date: 2022,
 							title: "SOLIDITY DOCUMENTATION"
@@ -386,7 +369,7 @@ export default function App() {
 
 					<div className="element logo">
 						<Image
-							src={"http://assets.stratusagency.io/icon_black.webp"}
+							src={iconBlackImage}
 							alt=""
 							width={36}
 							height={36}
@@ -399,7 +382,7 @@ export default function App() {
 
 					<div className="element logo">
 						<Image
-							src={"http://assets.stratusagency.io/icon_black.webp"}
+							src={iconBlackImage}
 							alt=""
 							width={36}
 							height={36}
@@ -412,7 +395,7 @@ export default function App() {
 
 					<div className="element logo">
 						<Image
-							src={"http://assets.stratusagency.io/icon_black.webp"}
+							src={iconBlackImage}
 							alt=""
 							width={36}
 							height={36}
@@ -425,7 +408,7 @@ export default function App() {
 
 					<div className="element logo">
 						<Image
-							src={"http://assets.stratusagency.io/icon_black.webp"}
+							src={iconBlackImage}
 							alt=""
 							width={36}
 							height={36}
@@ -438,7 +421,7 @@ export default function App() {
 
 					<div className="element logo">
 						<Image
-							src={"http://assets.stratusagency.io/icon_black.webp"}
+							src={iconBlackImage}
 							alt=""
 							width={36}
 							height={36}
@@ -513,6 +496,20 @@ export default function App() {
 			<Footer timeline={timeline} />
 		</>
 	);
+}
+
+const PortfolioImagesColumn = ({ list }) => {
+	return (
+		list.map((element, i) => (
+			<Image
+				src={element}
+				placeholder={'blur'}
+				priority
+				alt={`work #${i}`}
+				key={i}
+			/>
+		))
+	)
 }
 
 const ValueElement = ({ options }) => {

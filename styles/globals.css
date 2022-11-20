@@ -230,16 +230,19 @@ section.portfolio div.right {
   grid-template-rows: auto;
 }
 
-section.portfolio img.showcase-main-image {
+section.portfolio div.center img {
   width: 43.75vw;
+  height: auto;
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
 
-section.portfolio img.showcase-image {
+section.portfolio div.left img,
+section.portfolio div.right img {
   width: 38vw;
+  height: auto;
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -853,6 +856,11 @@ footer div.copyrights p {
     padding-bottom: 0px;
   }
 
+  section.values, section.work {
+    width: 100vw;
+    overflow: hidden;
+  }
+
   section.values h2 {
     margin: 0 0 35px 0;
   }
@@ -894,7 +902,8 @@ footer div.copyrights p {
   }
 
   section.work div.element img {
-    height: 385px;
+    width: 100%;
+    height: auto;
   }
 
   section.services h2 {
