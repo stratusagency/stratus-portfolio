@@ -856,7 +856,8 @@ footer div.copyrights p {
     padding-bottom: 0px;
   }
 
-  section.values, section.work {
+  section.values,
+  section.work {
     width: 100vw;
     overflow: hidden;
   }

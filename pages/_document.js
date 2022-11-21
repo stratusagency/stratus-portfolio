@@ -23,7 +23,7 @@ class MyDocument extends Document {
         return (
             <Html>
                 <Head>
-                    <meta charset="utf-8" />
+                    <meta charSet="utf-8" />
                     <link rel="icon" href="static/favicon.ico" />
                     <link rel="shortcut icon" href="/static/favicon.ico" />
                     <meta name="theme-color" content="#000000" />
