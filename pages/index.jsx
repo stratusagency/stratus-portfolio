@@ -374,15 +374,6 @@ export default function App() {
 						/>
 					</div>
 
-					{/* <div className="element logo">
-						<Image
-							src={iconBlackImage}
-							alt=""
-							width={36}
-							height={36}
-						/>
-					</div> */}
-
 					<div className="element">
 						<span>VISUAL DESIGN</span>
 
@@ -393,15 +384,6 @@ export default function App() {
 							height={36}
 						/>
 					</div>
-
-					{/* <div className="element logo">
-						<Image
-							src={iconBlackImage}
-							alt=""
-							width={36}
-							height={36}
-						/>
-					</div> */}
 
 					<div className="element">
 						<span>WEBSITES</span>
@@ -414,15 +396,6 @@ export default function App() {
 						/>
 					</div>
 
-					{/* <div className="element logo">
-						<Image
-							src={iconBlackImage}
-							alt=""
-							width={36}
-							height={36}
-						/>
-					</div> */}
-
 					<div className="element">
 						<span>WEBSITES</span>
 
@@ -434,15 +407,6 @@ export default function App() {
 						/>
 					</div>
 
-					{/* <div className="element logo">
-						<Image
-							src={iconBlackImage}
-							alt=""
-							width={36}
-							height={36}
-						/>
-					</div> */}
-
 					<div className="element">
 						<span>VISUAL DESIGN</span>
 
@@ -453,15 +417,6 @@ export default function App() {
 							height={36}
 						/>
 					</div>
-
-					{/* <div className="element logo">
-						<Image
-							src={iconBlackImage}
-							alt=""
-							width={36}
-							height={36}
-						/>
-					</div> */}
 				</div>
 			</section>
 
