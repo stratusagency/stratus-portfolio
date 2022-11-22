@@ -365,9 +365,7 @@ export default function App() {
 				<div className="track-wrap top">
 					<div className="element">
 						<span>WEBSITES</span>
-					</div>
 
-					<div className="element logo">
 						<Image
 							src={iconBlackImage}
 							alt=""
@@ -375,12 +373,19 @@ export default function App() {
 							height={36}
 						/>
 					</div>
+
+					{/* <div className="element logo">
+						<Image
+							src={iconBlackImage}
+							alt=""
+							width={36}
+							height={36}
+						/>
+					</div> */}
 
 					<div className="element">
 						<span>VISUAL DESIGN</span>
-					</div>
 
-					<div className="element logo">
 						<Image
 							src={iconBlackImage}
 							alt=""
@@ -388,12 +393,19 @@ export default function App() {
 							height={36}
 						/>
 					</div>
+
+					{/* <div className="element logo">
+						<Image
+							src={iconBlackImage}
+							alt=""
+							width={36}
+							height={36}
+						/>
+					</div> */}
 
 					<div className="element">
 						<span>WEBSITES</span>
-					</div>
 
-					<div className="element logo">
 						<Image
 							src={iconBlackImage}
 							alt=""
@@ -401,12 +413,19 @@ export default function App() {
 							height={36}
 						/>
 					</div>
+
+					{/* <div className="element logo">
+						<Image
+							src={iconBlackImage}
+							alt=""
+							width={36}
+							height={36}
+						/>
+					</div> */}
 
 					<div className="element">
 						<span>WEBSITES</span>
-					</div>
 
-					<div className="element logo">
 						<Image
 							src={iconBlackImage}
 							alt=""
@@ -414,12 +433,19 @@ export default function App() {
 							height={36}
 						/>
 					</div>
+
+					{/* <div className="element logo">
+						<Image
+							src={iconBlackImage}
+							alt=""
+							width={36}
+							height={36}
+						/>
+					</div> */}
 
 					<div className="element">
 						<span>VISUAL DESIGN</span>
-					</div>
 
-					<div className="element logo">
 						<Image
 							src={iconBlackImage}
 							alt=""
@@ -427,6 +453,15 @@ export default function App() {
 							height={36}
 						/>
 					</div>
+
+					{/* <div className="element logo">
+						<Image
+							src={iconBlackImage}
+							alt=""
+							width={36}
+							height={36}
+						/>
+					</div> */}
 				</div>
 			</section>
 

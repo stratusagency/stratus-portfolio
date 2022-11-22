@@ -5,6 +5,7 @@ import logoLargeBlackImage from "../../static/images/logo-large-black.svg"
 import instagramImage from "../../static/images/instagram.svg"
 import gitHubImage from "../../static/images/github.svg"
 import twitterImage from "../../static/images/twitter.svg"
+import telegramImage from "../../static/images/telegram.svg"
 
 export default function Footer(options) {
     const tl = options.timeline;
@@ -45,6 +46,15 @@ export default function Footer(options) {
                             <a href="https://twitter.com/stratusagency" target="_blank" rel="noopener noreferrer">
                                 <Image
                                     src={twitterImage}
+                                    alt=""
+                                    width={16}
+                                    height={17}
+                                />
+                            </a>
+
+                            <a href="https://t.me/+iFQ04zUAstJlZmI8" target="_blank" rel="noopener noreferrer">
+                                <Image
+                                    src={telegramImage}
                                     alt=""
                                     width={16}
                                     height={17}

@@ -468,13 +468,21 @@ section.track div.track-wrap div.element {
   flex-direction: row;
 
   white-space: nowrap;
+
+  margin: 0 48px 0 0;
 }
 
-section.track div.track-wrap div.element.logo {
+section.track div.track-wrap div.element img {
+  margin: 0 24px 0 28px;
+  width: 52px;
+  height: 52px;
+}
+
+/* section.track div.track-wrap div.element.logo {
   display: grid;
   place-items: center;
   margin: 0 25px;
-}
+} */
 
 section.services {
   width: 100%;
