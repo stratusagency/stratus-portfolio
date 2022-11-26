@@ -6,6 +6,7 @@ import instagramImage from "../../static/images/instagram.svg"
 import gitHubImage from "../../static/images/github.svg"
 import twitterImage from "../../static/images/twitter.svg"
 import telegramImage from "../../static/images/telegram.svg"
+import linkedinImage from "../../static/images/linkedin.png"
 
 export default function Footer(options) {
     const tl = options.timeline;
@@ -25,6 +26,15 @@ export default function Footer(options) {
                         <p>Metaverse, Blockchain and Web 3.0 Solutions Provider. Trusted by Metaverse GT.</p>
 
                         <div className="social-wrap">
+                            <a href="https://www.linkedin.com/company/stratusagency" target="_blank" rel="noopener noreferrer">
+                                <Image
+                                    src={linkedinImage}
+                                    alt=""
+                                    width={16}
+                                    height={17}
+                                />
+                            </a>
+
                             <a href="https://www.instagram.com/stratusagency_official/" target="_blank" rel="noopener noreferrer">
                                 <Image
                                     src={instagramImage}

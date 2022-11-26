@@ -32,192 +32,301 @@ import computerImage from "../static/images/computer.png"
 import handShakeImage from "../static/images/hand-shake.png"
 import heartImage from "../static/images/heart.png"
 import starsImage from "../static/images/stars.png"
+import Navbar from "./components/Navbar"
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
 	const hamburgerButtonRef = useRef();
+	const navbarRef = useRef();
 
+	const [load, setLoad] = useState(false);
 	const [timeline, setTimeline] = useState();
 
 	useEffect(() => {
-		// Create array of elements to tween on
-		const boxesTop = gsap.utils.toArray(".track-wrap.top .element");
+		if (!load) {
+			// Create array of elements to tween on
+			const boxesTop = gsap.utils.toArray(".track-wrap.top .element");
 
-		// Setup the tween
-		const loopTop = horizontalLoop(boxesTop, {
-			paused: false, // Sets the tween to be paused initially
-			repeat: -1 // Makes sure the tween runs infinitely
-		});
+			// Setup the tween
+			const loopTop = horizontalLoop(boxesTop, {
+				paused: false, // Sets the tween to be paused initially
+				repeat: -1 // Makes sure the tween runs infinitely
+			});
 
-		// Start the tween
-		loopTop.play() // Call to start playing the tween
+			// Start the tween
+			loopTop.play() // Call to start playing the tween
 
-		// ScrollTrigger set up for the whole duration of the body's scroll
-		ScrollTrigger.create({
-			start: 0,
-			end: 'max',
-			// pin: '.container',
-			onUpdate: () => loopTop.timeScale(1)
-		})
+			// ScrollTrigger set up for the whole duration of the body's scroll
+			ScrollTrigger.create({
+				start: 0,
+				end: 'max',
+				// pin: '.container',
+				onUpdate: () => loopTop.timeScale(1)
+			})
 
-		// -------------------------------------------------------------------------------------------------------------------------------------
+			// -------------------------------------------------------------------------------------------------------------------------------------
 
-		/*
-		This helper function makes a group of elements animate along the x-axis in a seamless, responsive loop.
-		
-		Features:
-		 - Uses xPercent so that even if the widths change (like if the window gets resized), it should still work in most cases.
-		 - When each item animates to the left or right enough, it will loop back to the other side
-		 - Optionally pass in a config object with values like "speed" (default: 1, which travels at roughly 100 pixels per second), paused (boolean),  repeat, reversed, and paddingRight.
-		 - The returned timeline will have the following methods added to it:
-		   - next() - animates to the next element using a timeline.tweenTo() which it returns. You can pass in a vars object to control duration, easing, etc.
-		   - previous() - animates to the previous element using a timeline.tweenTo() which it returns. You can pass in a vars object to control duration, easing, etc.
-		   - toIndex() - pass in a zero-based index value of the element that it should animate to, and optionally pass in a vars object to control duration, easing, etc. Always goes in the shortest direction
-		   - current() - returns the current index (if an animation is in-progress, it reflects the final index)
-		   - times - an Array of the times on the timeline where each element hits the "starting" spot. There's also a label added accordingly, so "label1" is when the 2nd element reaches the start.
-		 */
-		function horizontalLoop(items, config) {
-			items = gsap.utils.toArray(items);
-			config = config || {};
-			let tl = gsap.timeline({ repeat: config.repeat, paused: config.paused, defaults: { ease: "none" }, onReverseComplete: () => tl.totalTime(tl.rawTime() + tl.duration() * 100) }),
-				length = items.length,
-				startX = items[0].offsetLeft,
-				times = [],
-				widths = [],
-				xPercents = [],
-				curIndex = 0,
-				pixelsPerSecond = (config.speed || 1) * 100,
-				snap = config.snap === false ? v => v : gsap.utils.snap(config.snap || 1), // some browsers shift by a pixel to accommodate flex layouts, so for example if width is 20% the first element's width might be 242px, and the next 243px, alternating back and forth. So we snap to 5 percentage points to make things look more natural
-				totalWidth, curX, distanceToStart, distanceToLoop, item, i;
-			gsap.set(items, { // convert "x" to "xPercent" to make things responsive, and populate the widths/xPercents Arrays to make lookups faster.
-				xPercent: (i, el) => {
-					let w = widths[i] = parseFloat(gsap.getProperty(el, "width", "px"));
-					xPercents[i] = snap(parseFloat(gsap.getProperty(el, "x", "px")) / w * 100 + gsap.getProperty(el, "xPercent"));
-					return xPercents[i];
+			/*
+			This helper function makes a group of elements animate along the x-axis in a seamless, responsive loop.
+			
+			Features:
+			 - Uses xPercent so that even if the widths change (like if the window gets resized), it should still work in most cases.
+			 - When each item animates to the left or right enough, it will loop back to the other side
+			 - Optionally pass in a config object with values like "speed" (default: 1, which travels at roughly 100 pixels per second), paused (boolean),  repeat, reversed, and paddingRight.
+			 - The returned timeline will have the following methods added to it:
+			   - next() - animates to the next element using a timeline.tweenTo() which it returns. You can pass in a vars object to control duration, easing, etc.
+			   - previous() - animates to the previous element using a timeline.tweenTo() which it returns. You can pass in a vars object to control duration, easing, etc.
+			   - toIndex() - pass in a zero-based index value of the element that it should animate to, and optionally pass in a vars object to control duration, easing, etc. Always goes in the shortest direction
+			   - current() - returns the current index (if an animation is in-progress, it reflects the final index)
+			   - times - an Array of the times on the timeline where each element hits the "starting" spot. There's also a label added accordingly, so "label1" is when the 2nd element reaches the start.
+			 */
+			function horizontalLoop(items, config) {
+				items = gsap.utils.toArray(items);
+				config = config || {};
+				let tl = gsap.timeline({ repeat: config.repeat, paused: config.paused, defaults: { ease: "none" }, onReverseComplete: () => tl.totalTime(tl.rawTime() + tl.duration() * 100) }),
+					length = items.length,
+					startX = items[0].offsetLeft,
+					times = [],
+					widths = [],
+					xPercents = [],
+					curIndex = 0,
+					pixelsPerSecond = (config.speed || 1) * 100,
+					snap = config.snap === false ? v => v : gsap.utils.snap(config.snap || 1), // some browsers shift by a pixel to accommodate flex layouts, so for example if width is 20% the first element's width might be 242px, and the next 243px, alternating back and forth. So we snap to 5 percentage points to make things look more natural
+					totalWidth, curX, distanceToStart, distanceToLoop, item, i;
+				gsap.set(items, { // convert "x" to "xPercent" to make things responsive, and populate the widths/xPercents Arrays to make lookups faster.
+					xPercent: (i, el) => {
+						let w = widths[i] = parseFloat(gsap.getProperty(el, "width", "px"));
+						xPercents[i] = snap(parseFloat(gsap.getProperty(el, "x", "px")) / w * 100 + gsap.getProperty(el, "xPercent"));
+						return xPercents[i];
+					}
+				});
+				gsap.set(items, { x: 0 });
+				totalWidth = items[length - 1].offsetLeft + xPercents[length - 1] / 100 * widths[length - 1] - startX + items[length - 1].offsetWidth * gsap.getProperty(items[length - 1], "scaleX") + (parseFloat(config.paddingRight) || 0);
+				for (i = 0; i < length; i++) {
+					item = items[i];
+					curX = xPercents[i] / 100 * widths[i];
+					distanceToStart = item.offsetLeft + curX - startX;
+					distanceToLoop = distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
+					tl.to(item, { xPercent: snap((curX - distanceToLoop) / widths[i] * 100), duration: distanceToLoop / pixelsPerSecond }, 0)
+						.fromTo(item, { xPercent: snap((curX - distanceToLoop + totalWidth) / widths[i] * 100) }, { xPercent: xPercents[i], duration: (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond, immediateRender: false }, distanceToLoop / pixelsPerSecond)
+						.add("label" + i, distanceToStart / pixelsPerSecond);
+					times[i] = distanceToStart / pixelsPerSecond;
+				}
+				function toIndex(index, vars) {
+					vars = vars || {};
+					(Math.abs(index - curIndex) > length / 2) && (index += index > curIndex ? -length : length); // always go in the shortest direction
+					let newIndex = gsap.utils.wrap(0, length, index),
+						time = times[newIndex];
+					if (time > tl.time() !== index > curIndex) { // if we're wrapping the timeline's playhead, make the proper adjustments
+						vars.modifiers = { time: gsap.utils.wrap(0, tl.duration()) };
+						time += tl.duration() * (index > curIndex ? 1 : -1);
+					}
+					curIndex = newIndex;
+					vars.overwrite = true;
+					return tl.tweenTo(time, vars);
+				}
+				tl.next = vars => toIndex(curIndex + 1, vars);
+				tl.previous = vars => toIndex(curIndex - 1, vars);
+				tl.current = () => curIndex;
+				tl.toIndex = (index, vars) => toIndex(index, vars);
+				tl.times = times;
+				tl.progress(1, true).progress(0, true); // pre-render for performance
+				if (config.reversed) {
+					tl.vars.onReverseComplete();
+					tl.reverse();
+				}
+				return tl;
+			}
+
+			/**
+			 * TIMELINE PORTFOLIO
+			 */
+			const tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: 'header',
+					endTrigger: '.portfolio',
+					start: "top top",
+					end: 'bottom top',
+					markers: false,
+					scrub: 1,
+				}
+			})
+
+			tl.to('.portfolio .center', { yPercent: -25 }, 0)
+			tl.to(['.portfolio .left', '.portfolio .right'], { yPercent: 10 }, 0)
+
+			setTimeline(tl);
+
+			/**
+			 * BUTTONS ANIMS
+			 */
+			const buttonsQA = document.querySelectorAll('section.qa div.element')
+			const buttonsProjects = document.querySelectorAll('section.work div.element div.project-hover')
+
+			// Q&A buttons onmouseup animation
+			buttonsQA.forEach(button => {
+				button.onmouseup = () => {
+					const arrow = button.querySelector('img');
+					const text = button.querySelector('p');
+
+					if (button.classList.contains('opened')) {
+						button.classList.remove('opened');
+
+						gsap.to(arrow, {
+							rotateZ: 0,
+							duration: 0.3,
+						});
+
+						gsap.to(text, {
+							height: 0,
+							margin: 0,
+							duration: 0.3,
+						})
+					} else {
+						button.classList.add('opened');
+
+						gsap.to(arrow, {
+							rotateZ: 180,
+							duration: 0.3,
+						});
+
+						gsap.to(text, {
+							height: 'auto',
+							margin: "0 0 32px 0",
+							duration: 0.3,
+						})
+					}
 				}
 			});
-			gsap.set(items, { x: 0 });
-			totalWidth = items[length - 1].offsetLeft + xPercents[length - 1] / 100 * widths[length - 1] - startX + items[length - 1].offsetWidth * gsap.getProperty(items[length - 1], "scaleX") + (parseFloat(config.paddingRight) || 0);
-			for (i = 0; i < length; i++) {
-				item = items[i];
-				curX = xPercents[i] / 100 * widths[i];
-				distanceToStart = item.offsetLeft + curX - startX;
-				distanceToLoop = distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
-				tl.to(item, { xPercent: snap((curX - distanceToLoop) / widths[i] * 100), duration: distanceToLoop / pixelsPerSecond }, 0)
-					.fromTo(item, { xPercent: snap((curX - distanceToLoop + totalWidth) / widths[i] * 100) }, { xPercent: xPercents[i], duration: (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond, immediateRender: false }, distanceToLoop / pixelsPerSecond)
-					.add("label" + i, distanceToStart / pixelsPerSecond);
-				times[i] = distanceToStart / pixelsPerSecond;
-			}
-			function toIndex(index, vars) {
-				vars = vars || {};
-				(Math.abs(index - curIndex) > length / 2) && (index += index > curIndex ? -length : length); // always go in the shortest direction
-				let newIndex = gsap.utils.wrap(0, length, index),
-					time = times[newIndex];
-				if (time > tl.time() !== index > curIndex) { // if we're wrapping the timeline's playhead, make the proper adjustments
-					vars.modifiers = { time: gsap.utils.wrap(0, tl.duration()) };
-					time += tl.duration() * (index > curIndex ? 1 : -1);
-				}
-				curIndex = newIndex;
-				vars.overwrite = true;
-				return tl.tweenTo(time, vars);
-			}
-			tl.next = vars => toIndex(curIndex + 1, vars);
-			tl.previous = vars => toIndex(curIndex - 1, vars);
-			tl.current = () => curIndex;
-			tl.toIndex = (index, vars) => toIndex(index, vars);
-			tl.times = times;
-			tl.progress(1, true).progress(0, true); // pre-render for performance
-			if (config.reversed) {
-				tl.vars.onReverseComplete();
-				tl.reverse();
-			}
-			return tl;
+
+			// Projects hover animation
+			buttonsProjects.forEach(button => {
+				button.onmouseover = () => gsap.to(button, {
+					cursor: 'pointer',
+					opacity: 1,
+					duration: 0.3
+				})
+
+				button.onmouseleave = () => gsap.to(button, {
+					cursor: 'default',
+					opacity: 0,
+					duration: 0.3
+				})
+			})
+
+			setLoad(true);
 		}
+	}, [load]);
 
-		/**
-		 * TIMELINE PORTFOLIO
-		 */
-		const tl = gsap.timeline({
-			scrollTrigger: {
-				trigger: 'header',
-				endTrigger: '.portfolio',
-				start: "top top",
-				end: 'bottom top',
-				markers: false,
-				scrub: 1,
-			}
-		})
+	const handleNavbar = e => {
+		e.preventDefault();
 
-		tl.to('.portfolio .center', { yPercent: -25 }, 0)
-		tl.to(['.portfolio .left', '.portfolio .right'], { yPercent: 10 }, 0)
+		console.log(navbarRef.current.classList.contains('show'));
 
-		setTimeline(tl);
+		if (navbarRef.current.classList.contains('show')) {
+			// handle hide
+			const timeline = gsap.timeline();
 
-		/**
-		 * BUTTONS ANIMS
-		 */
-		const buttonsQA = document.querySelectorAll('section.qa div.element')
-		const buttonsProjects = document.querySelectorAll('section.work div.element div.project-hover')
+			timeline.to('section.navbar div.element a', {
+				y: '100%',
+				ease: 'power4.out',
+				duration: 0.8,
+				stagger: 0.1,
+			}, 0);
 
-		// Q&A buttons onmouseup animation
-		buttonsQA.forEach(button => {
-			button.onmouseup = () => {
-				const arrow = button.querySelector('img');
-				const text = button.querySelector('p');
+			timeline.to('section.navbar p', {
+				y: '100%',
+				ease: 'power4.out',
+				duration: 0.4,
+				stagger: 0.1,
+			}, 0);
 
-				if (button.classList.contains('opened')) {
-					button.classList.remove('opened');
+			timeline.to('section.navbar hr', {
+				width: '0',
+				ease: 'power4.out',
+				duration: 0.8,
+				stagger: 0.1,
+			}, 0);
 
-					gsap.to(arrow, {
-						rotateZ: 0,
-						duration: 0.3,
-					});
+			timeline.to('section.navbar img', {
+				height: '0%',
+				ease: 'power4.out',
+				duration: 0.8,
+			}, 0.4);
 
-					gsap.to(text, {
-						height: 0,
-						margin: 0,
-						duration: 0.3,
-					})
-				} else {
-					button.classList.add('opened');
+			timeline.to(navbarRef.current, {
+				y: '-100vh',
+				ease: 'power4.inOut',
+				duration: 1,
+				onComplete: () => {
+					navbarRef.current.classList.remove('show');
 
-					gsap.to(arrow, {
-						rotateZ: 180,
-						duration: 0.3,
-					});
-
-					gsap.to(text, {
-						height: 'auto',
-						margin: "0 0 32px 0",
-						duration: 0.3,
-					})
+					document.querySelector('section.navbar img').style.height = '0';
+					document.querySelector('section.navbar div.gray-divider').style.height = '0';
+					document.querySelectorAll('section.navbar div.links a').forEach(element => element.style.transform = 'translateY(-100%)');
 				}
-			}
-		});
+			}, 0.6);
+		} else {
+			// handle show
+			const timeline = gsap.timeline();
 
-		// Projects hover animation
-		buttonsProjects.forEach(button => {
-			button.onmouseover = () => gsap.to(button, {
-				cursor: 'pointer',
-				opacity: 1,
-				duration: 0.3
-			})
+			timeline.to(navbarRef.current, {
+				y: 0,
+				ease: 'power4.out',
+				duration: 1,
+				onComplete: () => {
+					navbarRef.current.classList.add('show')
 
-			button.onmouseleave = () => gsap.to(button, {
-				cursor: 'default',
-				opacity: 0,
-				duration: 0.3
-			})
-		})
-	}, []);
+					// gsap.to('section.navbar div.elements')
+				}
+			}, 0);
+
+			timeline.to('section.navbar div.links a', {
+				y: 0,
+				duration: 0.8,
+				ease: 'power3.out',
+				stagger: 0.1
+			}, 0.1);
+
+			timeline.to('section.navbar hr', {
+				width: '100%',
+				ease: 'power4.out',
+				duration: 0.8,
+				stagger: 0.1,
+			}, 0.1);
+
+			timeline.to('section.navbar img', {
+				height: '100%',
+				ease: 'power4.out',
+				duration: 0.8,
+			}, 0.4);
+
+			timeline.to('section.navbar div.gray-divider', {
+				height: '100vh',
+				ease: 'power4.out',
+				duration: 0.8,
+			}, 0.6);
+
+			timeline.to('section.navbar p', {
+				y: 0,
+				ease: 'power4.out',
+				duration: 0.4,
+				stagger: 0.1,
+			}, 0.6);
+		}
+	}
 
 	return (
 		<>
 			<Head>
-				<title>STRATUS — Expert Blockchain Engineer</title>
+				<title>STRATUS — Expert Blockchain Agency</title>
 				<link rel="shortcut icon" href="/static/favicon.ico" />
 			</Head>
+
+			<Navbar options={{
+				ref: navbarRef
+			}} />
 
 			<nav>
 				<div className="logo">
@@ -234,7 +343,7 @@ export default function App() {
 				<h2>WE BRING YOU TO WEB 3.0</h2>
 
 				<div className="hamburger">
-					<button ref={hamburgerButtonRef}>
+					<button onClick={handleNavbar} ref={hamburgerButtonRef}>
 						<Image
 							src={hamburgerIcon}
 							alt="icon button"
@@ -376,17 +485,6 @@ export default function App() {
 
 					<div className="element">
 						<span>VISUAL DESIGN</span>
-
-						<Image
-							src={iconBlackImage}
-							alt=""
-							width={36}
-							height={36}
-						/>
-					</div>
-
-					<div className="element">
-						<span>WEBSITES</span>
 
 						<Image
 							src={iconBlackImage}
