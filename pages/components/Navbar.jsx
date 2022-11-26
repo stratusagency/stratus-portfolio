@@ -3,11 +3,9 @@ import Link from "next/link"
 
 import navbarImage from "../../static/images/navbar-image.webp"
 
-export default function Navbar({ options }) {
-    const navbarRef = options.ref
-
+export default function Navbar() {
     return (
-        <section ref={navbarRef} className="navbar">
+        <section className="navbar">
             <div className="row">
                 <div className="links">
                     {['work', 'blog', 'store', 'contact'].map((x, i) => (

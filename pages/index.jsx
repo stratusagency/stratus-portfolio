@@ -222,9 +222,7 @@ export default function App() {
 	const handleNavbar = e => {
 		e.preventDefault();
 
-		console.log(navbarRef.current.classList.contains('show'));
-
-		if (navbarRef.current.classList.contains('show')) {
+		if (document.querySelector('section.navbar').classList.contains('show')) {
 			// handle hide
 			const timeline = gsap.timeline();
 
@@ -255,13 +253,12 @@ export default function App() {
 				duration: 0.8,
 			}, 0.4);
 
-			timeline.to(navbarRef.current, {
+			timeline.to('section.navbar', {
 				y: '-100vh',
 				ease: 'power4.inOut',
 				duration: 1,
 				onComplete: () => {
-					navbarRef.current.classList.remove('show');
-
+					document.querySelector('section.navbar').classList.remove('show');
 					document.querySelector('section.navbar img').style.height = '0';
 					document.querySelector('section.navbar div.gray-divider').style.height = '0';
 					document.querySelectorAll('section.navbar div.links a').forEach(element => element.style.transform = 'translateY(-100%)');
@@ -271,15 +268,11 @@ export default function App() {
 			// handle show
 			const timeline = gsap.timeline();
 
-			timeline.to(navbarRef.current, {
+			timeline.to('section.navbar', {
 				y: 0,
 				ease: 'power4.out',
 				duration: 1,
-				onComplete: () => {
-					navbarRef.current.classList.add('show')
-
-					// gsap.to('section.navbar div.elements')
-				}
+				onComplete: () => document.querySelector('section.navbar').classList.add('show')
 			}, 0);
 
 			timeline.to('section.navbar div.links a', {
@@ -324,9 +317,7 @@ export default function App() {
 				<link rel="shortcut icon" href="/static/favicon.ico" />
 			</Head>
 
-			<Navbar options={{
-				ref: navbarRef
-			}} />
+			<Navbar />
 
 			<nav>
 				<div className="logo">
