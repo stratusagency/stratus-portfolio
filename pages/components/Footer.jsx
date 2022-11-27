@@ -80,7 +80,7 @@ export default function Footer(options) {
                     <div className="list">
                         <Link href="/" onClick={() => tl ? tl.killAll() : undefined}>Home</Link>
                         <Link href="/work" onClick={() => tl ? tl.killAll() : undefined}>Work</Link>
-                        <Link href="/blog" onClick={() => tl ? tl.killAll() : undefined}>Blog</Link>
+                        <Link href="/about" onClick={() => tl ? tl.killAll() : undefined}>About</Link>
                         <Link href="/contact" onClick={() => tl ? tl.killAll() : undefined}>Contact</Link>
                     </div>
                 </div>
@@ -89,7 +89,7 @@ export default function Footer(options) {
                     <h2>LEGALS</h2>
 
                     <div className="list">
-                        <Link href="/rgpd" onClick={() => tl ? tl.killAll() : undefined}>RGPD</Link>
+                        {/* <Link href="/rgpd" onClick={() => tl ? tl.killAll() : undefined}>RGPD</Link> */}
                         <Link href="/legal" onClick={() => tl ? tl.killAll() : undefined}>Legal</Link>
                     </div>
                 </div>

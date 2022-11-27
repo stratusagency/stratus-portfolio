@@ -2,14 +2,12 @@ import { useEffect, useState, useRef } from "react"
 
 import Head from "next/head"
 import Image from "next/image"
-import Link from "next/link"
 
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import gsap from "gsap"
 
 import Footer from "./components/Footer"
 
-import logoLargeBlackImage from "../static/images/logo-large-black.svg"
 import solidityDocsImage from "../static/images/solidity-docs.webp"
 import solidityDocsWorkImage from "../static/images/solidity-docs-work.webp"
 import bbcsLtddImage from "../static/images/bbcs-ltdd.webp"
@@ -24,7 +22,6 @@ import nftGeneratorWorkImage from "../static/images/nft-generator-work.webp"
 import netalysImage from "../static/images/netalys.webp"
 import netalysWorkImage from "../static/images/netalys-work.webp"
 import launcherAutoImage from "../static/images/launcher-auto.webp"
-import hamburgerIcon from "../static/images/hamburger-icon.svg"
 import iconBlackImage from "../static/images/icon-black.webp"
 import questionImage from "../static/images/question.png"
 import chatImage from "../static/images/chat.png"
@@ -37,9 +34,6 @@ import Navbar from "./components/Navbar"
 gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
-	const hamburgerButtonRef = useRef();
-	const navbarRef = useRef();
-
 	const [load, setLoad] = useState(false);
 	const [timeline, setTimeline] = useState();
 
@@ -219,97 +213,6 @@ export default function App() {
 		}
 	}, [load]);
 
-	const handleNavbar = e => {
-		e.preventDefault();
-
-		if (document.querySelector('section.navbar').classList.contains('show')) {
-			// handle hide
-			const timeline = gsap.timeline();
-
-			timeline.to('section.navbar div.element a', {
-				y: '100%',
-				ease: 'power4.out',
-				duration: 0.8,
-				stagger: 0.1,
-			}, 0);
-
-			timeline.to('section.navbar p', {
-				y: '100%',
-				ease: 'power4.out',
-				duration: 0.4,
-				stagger: 0.1,
-			}, 0);
-
-			timeline.to('section.navbar hr', {
-				width: '0',
-				ease: 'power4.out',
-				duration: 0.8,
-				stagger: 0.1,
-			}, 0);
-
-			timeline.to('section.navbar img', {
-				height: '0%',
-				ease: 'power4.out',
-				duration: 0.8,
-			}, 0.4);
-
-			timeline.to('section.navbar', {
-				y: '-100vh',
-				ease: 'power4.inOut',
-				duration: 1,
-				onComplete: () => {
-					document.querySelector('section.navbar').classList.remove('show');
-					document.querySelector('section.navbar img').style.height = '0';
-					document.querySelector('section.navbar div.gray-divider').style.height = '0';
-					document.querySelectorAll('section.navbar div.links a').forEach(element => element.style.transform = 'translateY(-100%)');
-				}
-			}, 0.6);
-		} else {
-			// handle show
-			const timeline = gsap.timeline();
-
-			timeline.to('section.navbar', {
-				y: 0,
-				ease: 'power4.out',
-				duration: 1,
-				onComplete: () => document.querySelector('section.navbar').classList.add('show')
-			}, 0);
-
-			timeline.to('section.navbar div.links a', {
-				y: 0,
-				duration: 0.8,
-				ease: 'power3.out',
-				stagger: 0.1
-			}, 0.1);
-
-			timeline.to('section.navbar hr', {
-				width: '100%',
-				ease: 'power4.out',
-				duration: 0.8,
-				stagger: 0.1,
-			}, 0.1);
-
-			timeline.to('section.navbar img', {
-				height: '100%',
-				ease: 'power4.out',
-				duration: 0.8,
-			}, 0.4);
-
-			timeline.to('section.navbar div.gray-divider', {
-				height: '100vh',
-				ease: 'power4.out',
-				duration: 0.8,
-			}, 0.6);
-
-			timeline.to('section.navbar p', {
-				y: 0,
-				ease: 'power4.out',
-				duration: 0.4,
-				stagger: 0.1,
-			}, 0.6);
-		}
-	}
-
 	return (
 		<>
 			<Head>
@@ -318,32 +221,6 @@ export default function App() {
 			</Head>
 
 			<Navbar />
-
-			<nav>
-				<div className="logo">
-					<Link href="/" onClick={() => timeline.killAll()}>
-						<Image
-							src={logoLargeBlackImage}
-							alt="logo"
-							width={130}
-							height={77}
-						/>
-					</Link>
-				</div>
-
-				<h2>WE BRING YOU TO WEB 3.0</h2>
-
-				<div className="hamburger">
-					<button onClick={handleNavbar} ref={hamburgerButtonRef}>
-						<Image
-							src={hamburgerIcon}
-							alt="icon button"
-							width={30}
-							height={30}
-						/>
-					</button>
-				</div>
-			</nav>
 
 			<header>
 				<h1>STRATUS</h1>
@@ -464,7 +341,7 @@ export default function App() {
 			<section className="track">
 				<div className="track-wrap top">
 					<div className="element">
-						<span>WEBSITES</span>
+						<span>WEB 3.0</span>
 
 						<Image
 							src={iconBlackImage}
@@ -475,7 +352,7 @@ export default function App() {
 					</div>
 
 					<div className="element">
-						<span>VISUAL DESIGN</span>
+						<span>METAMASK</span>
 
 						<Image
 							src={iconBlackImage}
@@ -486,7 +363,7 @@ export default function App() {
 					</div>
 
 					<div className="element">
-						<span>WEBSITES</span>
+						<span>INFURA</span>
 
 						<Image
 							src={iconBlackImage}
@@ -497,7 +374,51 @@ export default function App() {
 					</div>
 
 					<div className="element">
-						<span>VISUAL DESIGN</span>
+						<span>SOLIDITY</span>
+
+						<Image
+							src={iconBlackImage}
+							alt=""
+							width={36}
+							height={36}
+						/>
+					</div>
+
+					<div className="element">
+						<span>MORALIS</span>
+
+						<Image
+							src={iconBlackImage}
+							alt=""
+							width={36}
+							height={36}
+						/>
+					</div>
+
+					<div className="element">
+						<span>BLOCKCHAIN</span>
+
+						<Image
+							src={iconBlackImage}
+							alt=""
+							width={36}
+							height={36}
+						/>
+					</div>
+
+					<div className="element">
+						<span>ETHEREUM</span>
+
+						<Image
+							src={iconBlackImage}
+							alt=""
+							width={36}
+							height={36}
+						/>
+					</div>
+
+					<div className="element">
+						<span>ETHERS</span>
 
 						<Image
 							src={iconBlackImage}
@@ -566,7 +487,7 @@ export default function App() {
 				<h2>discover without limits start your project now</h2>
 
 				<a href="https://calendly.com/stratus_agency/meet" target="_blank" rel="noopener noreferrer">
-					GET STARTED
+					SCHEDULE A CALL
 				</a>
 
 				<div className="background"></div>

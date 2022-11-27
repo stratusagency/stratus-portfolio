@@ -129,7 +129,7 @@ nav {
   flex-direction: row;
 
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: 3;
   left: 50%;
   top: 10px;
 
@@ -157,7 +157,7 @@ section.navbar {
 
   transform: translateY(-100vh);
   background: white;
-  z-index: 1;
+  z-index: 3;
 
   width: 100vw;
   height: 100vh;
@@ -447,6 +447,11 @@ section.work div.titles {
   text-align: center;
 }
 
+section.work.page div.titles {
+  margin-top: 50px;
+  margin-bottom: 120px;
+}
+
 section.work div.titles h3 {
   font-size: 20px;
   line-height: 1.2;
@@ -459,11 +464,9 @@ section.work div.titles h2 {
 }
 
 section.work div.left {
-  /* -ms-grid-column: span 1; */
   grid-column-start: span 1;
   -ms-grid-column-span: 1;
   grid-column-end: span 1;
-  /* -ms-grid-row: span 1; */
   grid-row-start: span 1;
   -ms-grid-row-span: 1;
   grid-row-end: span 1;
@@ -471,6 +474,10 @@ section.work div.left {
 
 section.work div.right {
   margin-top: 96px;
+}
+
+section.work.page div.right {
+  margin: 0;
 }
 
 section.work div.element {
@@ -628,16 +635,6 @@ section.services div.services-item > span:last-child {
 }
 
 section.qa {
-  /* display: -ms-grid;
-  display: grid;
-  grid-auto-columns: 1fr;
-  grid-column-gap: 40px;
-  grid-row-gap: 40px;
-  -ms-grid-columns: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
-  -ms-grid-rows: auto;
-  grid-template-rows: auto; */
-
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -787,6 +784,20 @@ section.call-to-action div.background {
   opacity: 0.5;
   -webkit-filter: blur(100px);
   filter: blur(100px);
+}
+
+section.legal {
+  display: grid;
+  place-items: center;
+}
+
+section.legal div.content {
+  width: 95vw;
+  height: 450px;
+}
+
+section.legal div.content h2 {
+  margin: 0 0 20px 0;
 }
 
 footer {
