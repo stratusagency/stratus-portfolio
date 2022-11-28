@@ -79,9 +79,9 @@ export default function Footer(options) {
 
                     <div className="list">
                         <Link href="/" onClick={() => tl ? tl.killAll() : undefined}>Home</Link>
-                        <Link href="/work" onClick={() => tl ? tl.killAll() : undefined}>Work</Link>
-                        <Link href="/about" onClick={() => tl ? tl.killAll() : undefined}>About</Link>
-                        <Link href="/contact" onClick={() => tl ? tl.killAll() : undefined}>Contact</Link>
+                        <Link href="/work.html" onClick={() => tl ? tl.killAll() : undefined}>Work</Link>
+                        <Link href="/about.html" onClick={() => tl ? tl.killAll() : undefined}>About</Link>
+                        <Link href="/contact.html" onClick={() => tl ? tl.killAll() : undefined}>Contact</Link>
                     </div>
                 </div>
 

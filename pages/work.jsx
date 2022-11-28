@@ -46,11 +46,8 @@ export default function Work() {
 
             <section className="work page">
                 <div className="titles">
-                    <h2>
-                        Award-Winning <br />
-                        RECENT WORK
-                    </h2>
-                    <h3>AWARD WINNING PROJECTS</h3>
+                    <h2>RECENT WORK</h2>
+                    <h3>COMPLETED PROJECTS</h3>
                 </div>
 
                 <div className="row">

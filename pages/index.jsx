@@ -23,12 +23,12 @@ import netalysImage from "../static/images/netalys.webp"
 import netalysWorkImage from "../static/images/netalys-work.webp"
 import launcherAutoImage from "../static/images/launcher-auto.webp"
 import iconBlackImage from "../static/images/icon-black.webp"
-import questionImage from "../static/images/question.png"
-import chatImage from "../static/images/chat.png"
-import computerImage from "../static/images/computer.png"
-import handShakeImage from "../static/images/hand-shake.png"
-import heartImage from "../static/images/heart.png"
-import starsImage from "../static/images/stars.png"
+import questionImage from "../static/images/question.jpg"
+import chatImage from "../static/images/chat.jpg"
+import computerImage from "../static/images/computer.jpg"
+import handShakeImage from "../static/images/hand-shake.jpg"
+import heartImage from "../static/images/heart.jpg"
+import starsImage from "../static/images/stars.jpg"
 import Navbar from "./components/Navbar"
 
 gsap.registerPlugin(ScrollTrigger);
@@ -278,14 +278,14 @@ export default function App() {
 					<ValueElement options={{
 						icon_url: heartImage,
 						title: "Working with everyone",
-						description: "Whether you are a business based in a specific field, you should have the chance to dive into Web 3.0!"
+						description: "Whether you are a business based in a specific field, you should have the chance to dive into Web 3.0."
 					}} />
 				</div>
 			</section>
 
 			<section className="work">
 				<div className="titles">
-					<h3>AWARD WINNING PROJECTS</h3>
+					<h3>COMPLETED PROJECTS</h3>
 					<h2>RECENT WORK</h2>
 				</div>
 
@@ -408,17 +408,6 @@ export default function App() {
 
 					<div className="element">
 						<span>ETHEREUM</span>
-
-						<Image
-							src={iconBlackImage}
-							alt=""
-							width={36}
-							height={36}
-						/>
-					</div>
-
-					<div className="element">
-						<span>ETHERS</span>
 
 						<Image
 							src={iconBlackImage}

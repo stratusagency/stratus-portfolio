@@ -17,10 +17,10 @@ export default function Navbar() {
         href: '/'
     }, {
         name: 'work',
-        href: '/work'
+        href: '/work.html'
     }, {
         name: 'about',
-        href: '/about'
+        href: '/about.html'
     }, {
         name: 'contact',
         href: 'https://calendly.com/stratus_agency/meet'
