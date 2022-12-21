@@ -17,8 +17,8 @@ import megtImage from "../static/images/megt.webp"
 import megtWorkImage from "../static/images/megt-work.webp"
 import montBlancClimateChangeImage from "../static/images/mont-blanc-climate-change.webp"
 import montBlancClimateChangeWorkImage from "../static/images/mont-blanc-climate-change-work.webp"
-import nftGeneratorImage from "../static/images/nft-generator.webp"
-import nftGeneratorWorkImage from "../static/images/nft-generator-work.webp"
+import cirrusImage from "../static/images/cirrus.webp"
+import cirrusWorkImage from "../static/images/cirrus-work.webp"
 import netalysImage from "../static/images/netalys.webp"
 import netalysWorkImage from "../static/images/netalys-work.webp"
 import launcherAutoImage from "../static/images/launcher-auto.webp"
@@ -233,11 +233,11 @@ export default function App() {
 				</div>
 
 				<div className="center">
-					<PortfolioImagesColumn list={[megtImage, montBlancClimateChangeImage, nftGeneratorImage]} />
+					<PortfolioImagesColumn list={[megtImage, netalysImage, montBlancClimateChangeImage]} />
 				</div>
 
 				<div className="right">
-					<PortfolioImagesColumn list={[netalysImage, bbcsLtddImage, launcherAutoImage]} />
+					<PortfolioImagesColumn list={[cirrusImage, bbcsLtddImage, launcherAutoImage]} />
 				</div>
 			</section>
 
@@ -292,10 +292,10 @@ export default function App() {
 				<div className="row">
 					<div className="left">
 						<WorkElement options={{
-							icon_url: bbcsLtddWorkImage,
-							url: 'https://bbcs.netlify.app',
-							date: 2021,
-							title: "BBCS & LTDD"
+							icon_url: cirrusWorkImage,
+							url: 'https://cirrus.stratusagency.io',
+							date: 2022,
+							title: "CIRRUS"
 						}} />
 
 						<WorkElement options={{
@@ -322,11 +322,12 @@ export default function App() {
 						}} />
 
 						<WorkElement options={{
-							icon_url: nftGeneratorWorkImage,
-							url: 'https://form.questionscout.com/6356e687efdc2d82c05e554a',
-							date: 2022,
-							title: "NFT GENERATOR"
+							icon_url: bbcsLtddWorkImage,
+							url: 'https://bbcs.netlify.app',
+							date: 2021,
+							title: "BBCS & LTDD"
 						}} />
+
 
 						<WorkElement options={{
 							icon_url: solidityDocsWorkImage,

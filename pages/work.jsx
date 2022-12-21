@@ -9,7 +9,7 @@ import solidityDocsWorkImage from "../static/images/solidity-docs-work.webp"
 import bbcsLtddWorkImage from "../static/images/bbcs-ltdd-work.webp"
 import megtWorkImage from "../static/images/megt-work.webp"
 import montBlancClimateChangeWorkImage from "../static/images/mont-blanc-climate-change-work.webp"
-import nftGeneratorWorkImage from "../static/images/nft-generator-work.webp"
+import cirrusWorkImage from "../static/images/cirrus-work.webp"
 import netalysWorkImage from "../static/images/netalys-work.webp"
 
 import Navbar from "./components/Navbar"
@@ -83,10 +83,10 @@ export default function Work() {
                         }} />
 
                         <WorkElement options={{
-                            icon_url: nftGeneratorWorkImage,
-                            url: 'https://form.questionscout.com/6356e687efdc2d82c05e554a',
+                            icon_url: cirrusWorkImage,
+                            url: 'https://cirrus.stratusagency.io',
                             date: 2022,
-                            title: "NFT GENERATOR"
+                            title: "CIRRUS"
                         }} />
 
                         <WorkElement options={{
